@@ -7,7 +7,7 @@ using VendingMachine.SharedKernel.Interfaces;
 
 namespace VendingMachine.SharedKernel.ValueObjects
 {
-	public class Location : IValueObject
+	public class Location : ValueObjectBase<Location>, IValueObject
 	{
 		#region Constructors
 
@@ -52,12 +52,26 @@ namespace VendingMachine.SharedKernel.ValueObjects
 
 		public override bool Equals(object obj)
 		{
-			return base.Equals(obj);
+			Location otherLocation = (Location)obj;
+
+			return (string.Compare(this.Street, otherLocation.Street, true) == 0)
+					&& (string.Compare(this.City, otherLocation.City, true) == 0)
+					&& (string.Compare(this.LandMark, otherLocation.LandMark, true) == 0);
 		}
 
 		public override int GetHashCode()
 		{
-			return base.GetHashCode();
+			return this.Street.GetHashCode() * this.City.GetHashCode() * this.LandMark.GetHashCode();
+		}
+
+		public override Location Add(Location obj)
+		{
+			return null;
+		}
+
+		public override Location Subtract(Location obj)
+		{
+			return null;
 		}
 
 		#endregion Methods

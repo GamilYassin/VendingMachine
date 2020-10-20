@@ -1,8 +1,9 @@
 ﻿using System;
+using VendingMachine.SharedKernel.Interfaces;
 
 namespace VendingMachine.SharedKernel.ValueObjects
 {
-	public class Date
+	public class Date : ValueObjectBase<Date>, IValueObject
 	{
 		#region Fields
 
@@ -52,6 +53,16 @@ namespace VendingMachine.SharedKernel.ValueObjects
 								date1.Value.Day - date2.Value.Day);
 		}
 
+		public static bool operator ==(Date date1, Date date2)
+		{
+			return (date1.Value == date2.Value);
+		}
+
+		public static bool operator !=(Date date1, Date date2)
+		{
+			return !(date1 == date2);
+		}
+
 		public Date AddYears(int years)
 		{
 			return DateFactory(this.Value.Year + years,
@@ -99,12 +110,22 @@ namespace VendingMachine.SharedKernel.ValueObjects
 
 		public override bool Equals(object obj)
 		{
-			return base.Equals(obj);
+			return (this == (Date)obj);
 		}
 
 		public override int GetHashCode()
 		{
-			return base.GetHashCode();
+			return this.Value.GetHashCode();
+		}
+
+		public override Date Add(Date obj)
+		{
+			return (this + obj);
+		}
+
+		public override Date Subtract(Date obj)
+		{
+			return (this - obj);
 		}
 
 		#endregion Methods

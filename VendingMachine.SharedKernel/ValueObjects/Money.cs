@@ -9,7 +9,7 @@ using VendingMachine.SharedKernel.Interfaces;
 
 namespace VendingMachine.SharedKernel.ValueObjects
 {
-	public class Money : IValueObject
+	public class Money : ValueObjectBase<Money>, IValueObject
 	{
 		#region Constructors
 
@@ -124,17 +124,27 @@ namespace VendingMachine.SharedKernel.ValueObjects
 
 		public override bool Equals(object obj)
 		{
-			return base.Equals(obj);
+			return (this == (Money)obj);
 		}
 
 		public override int GetHashCode()
 		{
-			return base.GetHashCode();
+			return this.Amount.GetHashCode() ^ this.Currency.GetHashCode();
 		}
 
 		public override string ToString()
 		{
-			return base.ToString();
+			return this.Amount.ToString("N2") + $" {this.Currency.ToString()}";
+		}
+
+		public override Money Add(Money obj)
+		{
+			return (this + obj);
+		}
+
+		public override Money Subtract(Money obj)
+		{
+			return (this - obj);
 		}
 
 		#endregion Methods

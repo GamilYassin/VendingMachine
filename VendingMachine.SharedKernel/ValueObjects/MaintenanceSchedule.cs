@@ -7,7 +7,7 @@ using VendingMachine.SharedKernel.Interfaces;
 
 namespace VendingMachine.SharedKernel.ValueObjects
 {
-	public class MaintenanceSchedule : IValueObject
+	public class MaintenanceSchedule : ValueObjectBase<MaintenanceSchedule>, IValueObject
 	{
 		#region Fields
 
@@ -59,12 +59,24 @@ namespace VendingMachine.SharedKernel.ValueObjects
 
 		public override bool Equals(object obj)
 		{
-			return base.Equals(obj);
+			MaintenanceSchedule schedule = (MaintenanceSchedule)obj;
+			return (this.Frequency == schedule.Frequency)
+				&& (this.LastMaintDate == schedule.LastMaintDate);
 		}
 
 		public override int GetHashCode()
 		{
-			return base.GetHashCode();
+			return this.Frequency.GetHashCode() ^ this.LastMaintDate.GetHashCode();
+		}
+
+		public override MaintenanceSchedule Add(MaintenanceSchedule obj)
+		{
+			return null;
+		}
+
+		public override MaintenanceSchedule Subtract(MaintenanceSchedule obj)
+		{
+			return null;
 		}
 
 		#endregion Methods
