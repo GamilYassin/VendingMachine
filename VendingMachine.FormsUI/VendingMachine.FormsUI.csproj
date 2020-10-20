@@ -76,5 +76,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.Application\VendingMachine.Application.csproj">
+      <Project>{2f0d3fd5-ee26-4da2-981d-410f3b76a563}</Project>
+      <Name>VendingMachine.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj">
+      <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
+      <Name>VendingMachine.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

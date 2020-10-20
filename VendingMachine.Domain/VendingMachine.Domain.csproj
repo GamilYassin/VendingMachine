@@ -41,7 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClasses\Entity.cs" />
+    <Compile Include="Entities\VendingMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseClasses\ValueObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.Presentation\VendingMachine.Presentation.csproj">
+      <Project>{f2674448-0c96-4588-8410-2479bf35edc6}</Project>
+      <Name>VendingMachine.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj">
+      <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
+      <Name>VendingMachine.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ValueObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

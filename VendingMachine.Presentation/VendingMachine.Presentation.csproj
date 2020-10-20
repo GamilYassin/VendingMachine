@@ -43,5 +43,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj">
+      <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
+      <Name>VendingMachine.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -43,5 +43,15 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.Domain\VendingMachine.Domain.csproj">
+      <Project>{41b8e785-5ef9-49a3-bead-fb971ad93039}</Project>
+      <Name>VendingMachine.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj">
+      <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
+      <Name>VendingMachine.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
