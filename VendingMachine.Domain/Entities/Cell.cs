@@ -9,5 +9,9 @@ namespace VendingMachine.Domain.Entities
 {
 	public class Cell : Entity
 	{
+		public int RowNumber{get; set;}
+		public int LaneNumber {get; set;}
+		public SellItem SellItem{get; set;}
+		public int SellItemQty{get; set;}
 	}
 }

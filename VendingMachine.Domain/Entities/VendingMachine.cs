@@ -1,19 +1,15 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VendingMachine.Domain.BaseClasses;
-using VendingMachine.SharedKernel.Enums;
 using VendingMachine.SharedKernel.Interfaces;
 using VendingMachine.SharedKernel.ValueObjects;
+using VendingMachine.Domain.Enums;
 
 namespace VendingMachine.Domain.Entities
 {
 	public class VendingMachine : Entity, IAggregateRoot
 	{
 		#region Properties
-
 		public Location VMLocation { get; set; }
 		public string Model { get; set; }
 		public string Manufacturer { get; set; }
