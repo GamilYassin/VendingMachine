@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
 using VendingMachine.Domain.BaseClasses;
-using VendingMachine.SharedKernel.Interfaces;
 using VendingMachine.SharedKernel.ValueObjects;
 
 
