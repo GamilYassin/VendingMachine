@@ -41,9 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseModels\CellsRecord.cs" />
+    <Compile Include="DataBaseModels\InsideBalanceRecord.cs" />
+    <Compile Include="DataBaseModels\LocationRecord.cs" />
+    <Compile Include="DataBaseModels\SellItemRecord.cs" />
+    <Compile Include="DataBaseModels\UserRecord.cs" />
+    <Compile Include="DataBaseModels\VendingMachineRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.Domain\VendingMachine.Domain.csproj">
+      <Project>{41b8e785-5ef9-49a3-bead-fb971ad93039}</Project>
+      <Name>VendingMachine.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj">
       <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
       <Name>VendingMachine.SharedKernel</Name>
