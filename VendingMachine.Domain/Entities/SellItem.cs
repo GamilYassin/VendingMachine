@@ -8,12 +8,11 @@ namespace VendingMachine.Domain.ValueObjects
 {
 	public class SellItem : EntityBase
 	{
-		public string Name { get; set; }
-		public Money Price { get; set; }
-		public string Barcode { get; set; }
-		public SellItemType ItemType { get; set; }
-		public int GrandTotal { get; set; }
-		public Money GrandSellAmount { get; set; }
+		#region Constructors
+
+		public SellItem()
+		{
+		}
 
 		public SellItem(string name, Money price, string barCode, SellItemType itemType, int grandTotal, Money grandAmount)
 		{
@@ -29,9 +28,26 @@ namespace VendingMachine.Domain.ValueObjects
 		{
 		}
 
+		#endregion Constructors
+
+		#region Properties
+
+		public string Name { get; set; }
+		public Money Price { get; set; }
+		public string Barcode { get; set; }
+		public SellItemType ItemType { get; set; }
+		public int GrandTotal { get; set; }
+		public Money GrandSellAmount { get; set; }
+
+		#endregion Properties
+
+		#region Methods
+
 		public override string ToString()
 		{
 			return $"Item Name: {this.Name} Price: {this.Price.ToString()}";
 		}
+
+		#endregion Methods
 	}
 }

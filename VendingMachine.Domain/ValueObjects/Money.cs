@@ -12,9 +12,13 @@ namespace VendingMachine.Domain.ValueObjects
 {
 	public class Money : ValueObjectBase<Money>, IValueObject
 	{
+		#region Fields
+
 		public static string DefaultCurrency = "USD";
 
 		public static Money Empty = new Money(0m, DefaultCurrency);
+
+		#endregion Fields
 
 		#region Constructors
 
@@ -167,7 +171,7 @@ namespace VendingMachine.Domain.ValueObjects
 			return (this - obj);
 		}
 
-		public String AmoneyField()
+		public String MoneyField()
 		{
 			return $"{this.Amount.ToString()} {this.Currency}";
 		}

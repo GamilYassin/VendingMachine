@@ -23,7 +23,7 @@ namespace VendingMachine.Presentation.Context
 
 		public VendingMachineContext CreateDbContext(string[] args)
 		{
-			return new VendingMachineContext(Default_Connection);
+			return VendingMachineContext.InstanceFactory(Default_Connection);
 		}
 
 		#endregion Methods

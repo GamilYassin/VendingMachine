@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IAggregateRoot.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IModelMapper.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

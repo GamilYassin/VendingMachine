@@ -66,6 +66,7 @@
     <EmbeddedResource Include="VendingMachineWindow.resx">
       <DependentUpon>VendingMachineWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Media\Vending Machine_System Design.docx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -89,8 +90,9 @@
       <Name>VendingMachine.SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Media\" />
+    <Content Include="Media\icons8_vending_machine.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
