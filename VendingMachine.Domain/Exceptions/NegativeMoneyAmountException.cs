@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VendingMachine.SharedKernel.Exceptions
+namespace VendingMachine.Domain.Exceptions
 {
 	public class NegativeMoneyAmountException : Exception
 	{

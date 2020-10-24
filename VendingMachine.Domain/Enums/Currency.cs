@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VendingMachine.SharedKernel.Enums
+namespace VendingMachine.Domain.Enums
 {
 	public enum Currency
 	{

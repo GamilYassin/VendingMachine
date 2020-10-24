@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Domain.BaseClasses;
 
-namespace VendingMachine.SharedKernel.ValueObjects
+namespace VendingMachine.Domain.ValueObjects
 {
 	public class Location : ValueObjectBase<Location>, IValueObject
 	{

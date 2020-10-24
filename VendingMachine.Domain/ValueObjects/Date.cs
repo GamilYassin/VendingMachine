@@ -1,7 +1,8 @@
 ﻿using System;
 using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Domain.BaseClasses;
 
-namespace VendingMachine.SharedKernel.ValueObjects
+namespace VendingMachine.Domain.ValueObjects
 {
 	public class Date : ValueObjectBase<Date>, IValueObject
 	{

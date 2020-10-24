@@ -7,15 +7,15 @@ using VendingMachine.SharedKernel.Interfaces;
 
 namespace VendingMachine.Domain.BaseClasses
 {
-	public abstract class Entity : IEntity
+	public abstract class EntityBase : IEntity
 	{
 		#region Constructors
 
-		public Entity()
+		public EntityBase()
 		{
 		}
 
-		public Entity(int id)
+		public EntityBase(int id)
 		{
 			this.Id = id;
 		}

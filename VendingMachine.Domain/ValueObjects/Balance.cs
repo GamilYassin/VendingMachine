@@ -4,15 +4,18 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-using VendingMachine.SharedKernel.Exceptions;
+using VendingMachine.Domain.Exceptions;
+using VendingMachine.Domain.Enums;
+using VendingMachine.Domain.BaseClasses;
 using VendingMachine.SharedKernel.Interfaces;
 
-namespace VendingMachine.SharedKernel.ValueObjects
+namespace VendingMachine.Domain.ValueObjects
 {
 	public class Balance : ValueObjectBase<Balance>, IValueObject
 	{
 		#region Fields
 
+		public static Balance Empty = new Balance(0, 0, 0, 0, 0, 0, 0, 0);
 		public static Balance Cent = new Balance(1, 0, 0, 0, 0, 0, 0, 0);
 		public static Balance Nickel = new Balance(0, 1, 0, 0, 0, 0, 0, 0);
 		public static Balance Dime = new Balance(0, 0, 1, 0, 0, 0, 0, 0);
@@ -111,7 +114,7 @@ namespace VendingMachine.SharedKernel.ValueObjects
 			return new Money(this.CentCount * 0.01m + this.NickelCount * 0.05m
 							+ this.DimeCount * 0.1m + this.QuarterCount * 0.25m
 							+ this.DollarCount * 1m + this.FiveDollarCount * 5m
-							+ this.TenDollarCount * 10m + this.TwentyDollarCount * 20m, Enums.Currency.US);
+							+ this.TenDollarCount * 10m + this.TwentyDollarCount * 20m, Money.DefaultCurrency);
 		}
 
 		public override bool Equals(object obj)

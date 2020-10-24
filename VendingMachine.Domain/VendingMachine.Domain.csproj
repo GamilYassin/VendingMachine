@@ -41,19 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClasses\Entity.cs" />
-    <Compile Include="Entities\Cart.cs" />
-    <Compile Include="Entities\Cell.cs" />
-    <Compile Include="Entities\CustomerSession.cs" />
-    <Compile Include="Entities\SellItem.cs" />
+    <Compile Include="BaseClasses\EntityBase.cs" />
+    <Compile Include="ValueObjects\Cell.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\VendingMachine.cs" />
+    <Compile Include="Enums\Currency.cs" />
     <Compile Include="Enums\CustomerSessionStatus.cs" />
     <Compile Include="Enums\SellItemType.cs" />
     <Compile Include="Enums\UserPrivilege.cs" />
     <Compile Include="Enums\VMState.cs" />
+    <Compile Include="Exceptions\NegativeMoneyAmountException.cs" />
+    <Compile Include="Exceptions\NotSameCurrencyException.cs" />
+    <Compile Include="Exceptions\NotSameSellItemException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BaseClasses\ValueObject.cs" />
+    <Compile Include="ValueObjects\Balance.cs" />
+    <Compile Include="ValueObjects\CartItem.cs" />
+    <Compile Include="Entities\CustomerSession.cs" />
+    <Compile Include="ValueObjects\Date.cs" />
+    <Compile Include="ValueObjects\Location.cs" />
+    <Compile Include="ValueObjects\MaintenanceSchedule.cs" />
+    <Compile Include="ValueObjects\Money.cs" />
+    <Compile Include="ValueObjects\SellItem.cs" />
+    <Compile Include="BaseClasses\ValueObjectBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VendingMachine.Presentation\VendingMachine.Presentation.csproj">

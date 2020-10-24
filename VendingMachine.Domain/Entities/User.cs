@@ -3,7 +3,7 @@ using VendingMachine.Domain.BaseClasses;
 
 namespace VendingMachine.Domain.Entities
 {
-	public class User : Entity
+	public class User : EntityBase
 	{
 		public string UserName { get; set; }
 		public string UserPassword { get; set; }

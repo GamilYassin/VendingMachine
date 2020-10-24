@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VendingMachine.SharedKernel.Interfaces;
 
-namespace VendingMachine.SharedKernel.ValueObjects
+namespace VendingMachine.Domain.BaseClasses
 {
 	public abstract class ValueObjectBase<T> where T : IValueObject
 	{
