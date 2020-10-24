@@ -28,7 +28,8 @@ namespace VendingMachine.Presentation.Migrations
 
                     b.Property<string>("CellId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(5)")
+                        .HasMaxLength(5);
 
                     b.Property<int>("ItemId")
                         .HasColumnType("int");
@@ -122,20 +123,23 @@ namespace VendingMachine.Presentation.Migrations
                         .HasMaxLength(20);
 
                     b.Property<string>("GrandSellAmount")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<int>("GrandTotal")
                         .HasColumnType("int");
 
                     b.Property<string>("ItemType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<string>("Price")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -150,9 +154,12 @@ namespace VendingMachine.Presentation.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Privilege")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
@@ -179,7 +186,8 @@ namespace VendingMachine.Presentation.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("GrandBalance")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<DateTime>("LastMaintDate")
                         .HasColumnType("datetime2");
@@ -196,7 +204,9 @@ namespace VendingMachine.Presentation.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 

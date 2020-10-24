@@ -16,6 +16,7 @@ namespace VendingMachine.Presentation.DataBaseModels
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
+		[Required]
 		public int VendingMachineId { get; set; }
 
 		[StringLength(50)]

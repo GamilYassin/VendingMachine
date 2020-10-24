@@ -17,13 +17,16 @@ namespace VendingMachine.Presentation.DataBaseModels
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		[StringLength(50)]
+		[MaxLength(50)]
+		[Required]
 		public string UserName { get; set; }
 
 		[StringLength(50)]
 		public string UserPassword { get; set; }
 
 		[DefaultValue("Customer")]
+		[MaxLength(50)]
+		[Required]
 		public string Privilege { get; set; }
 
 		#endregion Properties

@@ -189,6 +189,14 @@
     <Compile Include="Migrations\20201024165238_create_tables.designer.cs">
       <DependentUpon>20201024165238_create_tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20201024171247_Refactored_Models.cs" />
+    <Compile Include="Migrations\20201024171247_Refactored_Models.designer.cs">
+      <DependentUpon>20201024171247_Refactored_Models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20201024171450_Refactored_Models2.cs" />
+    <Compile Include="Migrations\20201024171450_Refactored_Models2.designer.cs">
+      <DependentUpon>20201024171450_Refactored_Models2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\VendingMachineContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

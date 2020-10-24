@@ -20,8 +20,10 @@ namespace VendingMachine.Presentation.DataBaseModels
 		public int VendingMachineId { get; set; }
 
 		[Required]
+		[StringLength(5)]
 		public string CellId { get; set; }
 
+		[DefaultValue(-1)]
 		public int ItemId { get; set; }
 
 		[DefaultValue(0)]

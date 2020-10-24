@@ -17,18 +17,22 @@ namespace VendingMachine.Presentation.DataBaseModels
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		[StringLength(50)]
+		[MaxLength(50)]
 		public string Name { get; set; }
 
+		[StringLength(50)]
 		public string Price { get; set; }
 
 		[StringLength(20)]
 		public string Barcode { get; set; }
 
 		[DefaultValue("Food")]
+		[MaxLength(50)]
 		public string ItemType { get; set; }
 
 		public int GrandTotal { get; set; }
+
+		[StringLength(50)]
 		public string GrandSellAmount { get; set; }
 
 		#endregion Properties

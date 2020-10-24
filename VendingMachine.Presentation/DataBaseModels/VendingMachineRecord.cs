@@ -29,6 +29,7 @@ namespace VendingMachine.Presentation.DataBaseModels
 		[DefaultValue("getutcdate()")]
 		public DateTime LastMaintDate { get; set; }
 
+		[StringLength(50)]
 		public string GrandBalance { get; set; }
 
 		[DefaultValue("getutcdate()")]
@@ -38,6 +39,8 @@ namespace VendingMachine.Presentation.DataBaseModels
 		public DateTime EndOfLifeDate { get; set; }
 
 		[DefaultValue("Starting")]
+		[MaxLength(50)]
+		[Required]
 		public string State { get; set; }
 
 		#endregion Properties
