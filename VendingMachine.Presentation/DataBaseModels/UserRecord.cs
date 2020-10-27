@@ -30,5 +30,16 @@ namespace VendingMachine.Presentation.DataBaseModels
 		public string Privilege { get; set; }
 
 		#endregion Properties
+
+		#region Methods
+
+		public void CopyTo(ref UserRecord dbRecord)
+		{
+			dbRecord.UserName = this.UserName;
+			dbRecord.UserPassword = this.UserPassword;
+			dbRecord.Privilege = this.Privilege;
+		}
+
+		#endregion Methods
 	}
 }
