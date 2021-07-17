@@ -62,7 +62,6 @@
     <Compile Include="ValueObjects\MaintenanceSchedule.cs" />
     <Compile Include="ValueObjects\Money.cs" />
     <Compile Include="Entities\SellItem.cs" />
-    <Compile Include="Base\ValueObjectBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.Services.csproj">

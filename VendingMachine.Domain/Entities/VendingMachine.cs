@@ -21,6 +21,11 @@ namespace VendingMachine.Domain.Entities
 		public IList<Cell> Cells { get; set; }
 		public VMState State { get; set; }
 
-		#endregion Properties
-	}
+        public override string ToString()
+        {
+            return $"{Manufacturer}, {Model}, {VMLocation}";
+        }
+
+        #endregion Properties
+    }
 }

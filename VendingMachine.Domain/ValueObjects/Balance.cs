@@ -11,7 +11,7 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.ValueObjects
 {
-	public class Balance : ValueObjectBase<Balance>, IValueObject
+	public class Balance :  IValueObject
 	{
 		#region Fields
 
@@ -135,12 +135,12 @@ namespace VendingMachine.Domain.ValueObjects
 			return $"Balance Amount: {CalculateAmount()}";
 		}
 
-		public override Balance Add(Balance obj)
+		public  Balance Add(Balance obj)
 		{
 			return (this + obj);
 		}
 
-		public override Balance Subtract(Balance obj)
+		public  Balance Subtract(Balance obj)
 		{
 			return (this - obj);
 		}

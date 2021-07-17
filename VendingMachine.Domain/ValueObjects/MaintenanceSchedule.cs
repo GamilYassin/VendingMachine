@@ -1,85 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VendingMachine.Services.Interfaces;
-using VendingMachine.Domain.Base;
+﻿using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.ValueObjects
 {
-	public class MaintenanceSchedule : ValueObjectBase<MaintenanceSchedule>, IValueObject
-	{
-		#region Fields
+    public class MaintenanceSchedule : IValueObject
+    {
+        #region Fields
 
-		public static readonly int DefaultFrequency = 30;
+        public static readonly int DefaultFrequency = 30;
 
-		#endregion Fields
+        #endregion Fields
 
-		#region Constructors
+        #region Constructors
 
-		public MaintenanceSchedule(int frequency, Date lastMaintDate)
-		{
-			this.Frequency = frequency;
-			this.LastMaintDate = lastMaintDate;
-		}
+        public MaintenanceSchedule(int frequency, Date lastMaintDate)
+        {
+            this.Frequency = frequency;
+            this.LastMaintDate = lastMaintDate;
+        }
 
-		public MaintenanceSchedule() : this(DefaultFrequency, Date.Now)
-		{
-		}
+        public MaintenanceSchedule() : this(DefaultFrequency, Date.Now)
+        {
+        }
 
-		public MaintenanceSchedule(int frequency) : this(frequency, Date.Now)
-		{
-		}
+        public MaintenanceSchedule(int frequency) : this(frequency, Date.Now)
+        {
+        }
 
-		#endregion Constructors
+        #endregion Constructors
 
-		#region Properties
+        #region Properties
 
-		public int Frequency { get; set; }
-		public Date LastMaintDate { get; set; }
+        public int Frequency { get; set; }
+        public Date LastMaintDate { get; set; }
 
-		#endregion Properties
+        #endregion Properties
 
-		#region Methods
+        #region Methods
 
-		public static MaintenanceSchedule MaintenanceScheduleFactory(int frequency, Date dateVal)
-		{
-			return new MaintenanceSchedule(frequency, dateVal);
-		}
+        public static MaintenanceSchedule MaintenanceScheduleFactory(int frequency, Date dateVal)
+        {
+            return new MaintenanceSchedule(frequency, dateVal);
+        }
 
-		public Date GetNextMaintDate()
-		{
-			return this.LastMaintDate.AddDays(this.Frequency);
-		}
+        public Date GetNextMaintDate()
+        {
+            return this.LastMaintDate.AddDays(this.Frequency);
+        }
 
-		public override string ToString()
-		{
-			return $"Next Maintenance Date: {GetNextMaintDate().ToString()}";
-		}
+        public override string ToString()
+        {
+            return $"Next Maintenance Date: {GetNextMaintDate().ToString()}";
+        }
 
-		public override bool Equals(object obj)
-		{
-			MaintenanceSchedule schedule = (MaintenanceSchedule)obj;
-			return (this.Frequency == schedule.Frequency)
-				&& (this.LastMaintDate == schedule.LastMaintDate);
-		}
+        public override bool Equals(object obj)
+        {
+            MaintenanceSchedule schedule = (MaintenanceSchedule)obj;
+            return (this.Frequency == schedule.Frequency)
+                && (this.LastMaintDate == schedule.LastMaintDate);
+        }
 
-		public override int GetHashCode()
-		{
-			return this.Frequency.GetHashCode() ^ this.LastMaintDate.GetHashCode();
-		}
+        public override int GetHashCode()
+        {
+            return this.Frequency.GetHashCode() ^ this.LastMaintDate.GetHashCode();
+        }
 
-		public override MaintenanceSchedule Add(MaintenanceSchedule obj)
-		{
-			return null;
-		}
 
-		public override MaintenanceSchedule Subtract(MaintenanceSchedule obj)
-		{
-			return null;
-		}
-
-		#endregion Methods
-	}
+        #endregion Methods
+    }
 }
