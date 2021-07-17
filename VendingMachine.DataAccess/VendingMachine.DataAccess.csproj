@@ -71,6 +71,7 @@
     <Compile Include="Tables\UserTableRecord.cs" />
     <Compile Include="Tables\VendingMachineTableRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork\SqlUnitofWorkBase.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

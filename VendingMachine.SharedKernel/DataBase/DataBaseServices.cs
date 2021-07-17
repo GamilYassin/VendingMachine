@@ -11,7 +11,7 @@ namespace VendingMachine.Services.DataBase
             return string.Empty;
         }
 
-        public static IEnumerable<KeyValuePair<string, object>> GetKeyValuePairs<T>(T model, bool isIdIncluded = false) where T : ITable, new()
+        public static IEnumerable<KeyValuePair<string, object>> GetKeyValuePairs<T>(T model, bool isIdIncluded = false) where T : ITable
         {
             List<KeyValuePair<string, object>> properities = new List<KeyValuePair<string, object>>();
 
@@ -31,11 +31,11 @@ namespace VendingMachine.Services.DataBase
             return properities;
         }
 
-        public static string GetTableName<T>(T model) where T : ITable, new()
+        public static string GetTableName<T>(T model) where T : ITable
         {
             if (model == null)
             {
-                model = new T();
+                model = default;
             }
             string name = typeof(T).Name;
             return name.Substring(0, name.Length - 5);

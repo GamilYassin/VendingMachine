@@ -10,7 +10,7 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.DataManager
 {
-    public class SqlDataManager<T> : DataManagerBase<T> where T : ITable, new()
+    public class SqlDataManager<T> : DataManagerBase<T> where T : ITable
     {
         public SqlDataManager() : base()
         {
@@ -47,7 +47,7 @@ namespace VendingMachine.DataAccess.DataManager
                     return 0;
                 }
                 int affected = 0;
-                string tableName = DataBaseServices.GetTableName(new T());
+                string tableName = DataBaseServices.GetTableName(default(T));
 
                 using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
                 using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
@@ -72,7 +72,7 @@ namespace VendingMachine.DataAccess.DataManager
         {
             try
             {
-                string tableName = DataBaseServices.GetTableName(new T());
+                string tableName = DataBaseServices.GetTableName(default(T));
                 using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
                 using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
                 {
@@ -93,7 +93,7 @@ namespace VendingMachine.DataAccess.DataManager
         {
             try
             {
-                string tableName = DataBaseServices.GetTableName(new T());
+                string tableName = DataBaseServices.GetTableName(default(T));
                 using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
                 using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
                 {
@@ -106,8 +106,6 @@ namespace VendingMachine.DataAccess.DataManager
                 return default;
             }
         }
-
-
 
         public override int Update(T model)
         {
@@ -141,7 +139,7 @@ namespace VendingMachine.DataAccess.DataManager
             try
             {
                 int affected = 0;
-                string tableName = DataBaseServices.GetTableName(new T());
+                string tableName = DataBaseServices.GetTableName(default(T));
                 using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
                 using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
                 {
@@ -191,7 +189,7 @@ namespace VendingMachine.DataAccess.DataManager
             try
             {
                 int affected = 0;
-                string tableName = DataBaseServices.GetTableName(new T());
+                string tableName = DataBaseServices.GetTableName(default(T));
                 using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
                 using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
                 {
