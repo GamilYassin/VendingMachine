@@ -1,5 +1,4 @@
 ﻿using VendingMachine.Domain.Base;
-using VendingMachine.Domain.Enums;
 using VendingMachine.Services.Interfaces;
 using VendingMachine.Services.Utils;
 
@@ -9,19 +8,17 @@ namespace VendingMachine.Domain.Models
     {
         #region Constructors
 
-        public SellItemModel(): this(0, string.Empty, Money.Empty, string.Empty, SellItemTypeEnum.Food,0,Money.Empty)
+        public SellItemModel() : this(0, string.Empty, Money.Empty, string.Empty, SellItemTypeEnum.Food)
         {
         }
 
-        public SellItemModel(int id, string name, Money price, string barCode, SellItemTypeEnum itemType, int grandTotal, Money grandAmount)
+        public SellItemModel(int id, string name, Money price, string barCode, SellItemTypeEnum itemType)
         {
             Id = id;
             Name = name;
             Price = price;
             Barcode = barCode;
             ItemType = itemType;
-            GrandTotal = grandTotal;
-            GrandSellAmount = grandAmount;
         }
 
 
@@ -33,8 +30,7 @@ namespace VendingMachine.Domain.Models
         public Money Price { get; set; }
         public string Barcode { get; set; }
         public SellItemTypeEnum ItemType { get; set; }
-        public int GrandTotal { get; set; }
-        public Money GrandSellAmount { get; set; }
+
 
         #endregion Properties
 
