@@ -1,19 +1,18 @@
-﻿using VendingMachine.Services.Interfaces;
-
-namespace VendingMachine.Domain.ValueObjects
+﻿namespace VendingMachine.Domain.Models
 {
-    public class Location : IValueObject
+    public class Location
     {
         #region Constructors
 
-        public Location(string street, string city, string landMark)
+        public Location(int vmId,  string street, string city, string landMark)
         {
+            VendingMachineId = vmId;
             Street = street;
             City = city;
             LandMark = landMark;
         }
 
-        public Location() : this(string.Empty, string.Empty, string.Empty)
+        public Location() : this(0,string.Empty, string.Empty, string.Empty)
         {
         }
 
@@ -24,6 +23,7 @@ namespace VendingMachine.Domain.ValueObjects
         public string City { get; set; }
         public string LandMark { get; set; }
         public string Street { get; set; }
+        public int VendingMachineId { get; set; }
 
         #endregion Properties
 
@@ -35,7 +35,7 @@ namespace VendingMachine.Domain.ValueObjects
             result = $"{City}, {Street}";
             if (!string.IsNullOrEmpty(LandMark))
             {
-                result = result + $" nearby {LandMark}";
+                result += $" nearby {LandMark}";
             }
             return result;
         }

@@ -3,7 +3,7 @@ using VendingMachine.Domain.Enums;
 
 namespace VendingMachine.Domain.Models
 {
-    public class User : EntityBase
+    public class UserModel : EntityBase
     {
         public string UserName { get; set; }
         public string UserPassword { get; set; }

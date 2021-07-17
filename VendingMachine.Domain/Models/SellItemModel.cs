@@ -1,18 +1,20 @@
 ﻿using VendingMachine.Domain.Base;
 using VendingMachine.Domain.Enums;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.ValueObjects
 {
-    public class SellItem : EntityBase
+    public class SellItemModel : EntityBase, IAggregateRoot
     {
         #region Constructors
 
-        public SellItem()
+        public SellItemModel(): this(0, string.Empty, Money.Empty, string.Empty, SellItemTypeEnum.Food,0,Money.Empty)
         {
         }
 
-        public SellItem(string name, Money price, string barCode, SellItemTypeEnum itemType, int grandTotal, Money grandAmount)
+        public SellItemModel(int id, string name, Money price, string barCode, SellItemTypeEnum itemType, int grandTotal, Money grandAmount)
         {
+            Id = id;
             Name = name;
             Price = price;
             Barcode = barCode;
@@ -21,9 +23,6 @@ namespace VendingMachine.Domain.ValueObjects
             GrandSellAmount = grandAmount;
         }
 
-        public SellItem(string name) : this(name, new Money(), string.Empty, SellItemTypeEnum.Food, 0, new Money())
-        {
-        }
 
         #endregion Constructors
 

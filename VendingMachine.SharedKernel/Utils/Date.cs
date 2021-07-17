@@ -1,7 +1,7 @@
 ﻿using System;
 using VendingMachine.Services.Interfaces;
 
-namespace VendingMachine.Domain.ValueObjects
+namespace VendingMachine.Services.Utils
 {
     public class Date : IValueObject
     {

@@ -4,16 +4,16 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.ValueObjects
 {
-    public class CartItem : IValueObject
+    public class CartItem
     {
         public int Qty { get; }
-        public SellItem SellItem { get; }
+        public SellItemModel SellItem { get; }
 
         public CartItem()
         {
         }
 
-        public CartItem(int qty, SellItem sellItem)
+        public CartItem(int qty, SellItemModel sellItem)
         {
             Qty = qty;
             SellItem = sellItem;

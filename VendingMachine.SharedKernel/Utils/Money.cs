@@ -1,10 +1,8 @@
 ﻿using System;
-using VendingMachine.Domain.Exceptions;
-using VendingMachine.Services.Interfaces;
 
-namespace VendingMachine.Domain.ValueObjects
+namespace VendingMachine.Services.Utils
 {
-    public class Money : IValueObject
+    public class Money
     {
         #region Fields
 
@@ -39,7 +37,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public static Money operator *(Money money1, decimal val)
         {
-            if (ReferenceEquals(money1, null))
+            if (money1 is null)
                 throw new NullReferenceException("Money values are null referenced");
 
             return new Money(money1.Amount * val, money1.Currency);

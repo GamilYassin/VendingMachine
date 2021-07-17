@@ -7,11 +7,11 @@ namespace VendingMachine.Domain.Models
     public class Cell : IValueObject
     {
         public string CellId { get; }
-        public SellItem SellItem { get; }
+        public SellItemModel SellItem { get; }
         public int SellItemQty { get; }
         public int VendingMachineId { get; set; }
 
-        public Cell(int vmId, string cellId, SellItem sellItem, int itemQty)
+        public Cell(int vmId, string cellId, SellItemModel sellItem, int itemQty)
         {
             VendingMachineId = vmId;
             CellId = CellId;

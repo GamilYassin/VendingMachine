@@ -1,9 +1,9 @@
 ﻿using System;
 using VendingMachine.Services.Interfaces;
 
-namespace VendingMachine.Domain.ValueObjects
+namespace VendingMachine.Domain.Models
 {
-    public class MaintenanceSchedule : IValueObject
+    public class MaintenanceSchedule
     {
         #region Fields
 
