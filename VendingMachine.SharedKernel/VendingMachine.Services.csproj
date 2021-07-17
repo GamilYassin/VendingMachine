@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IModelMapper.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ITable.cs" />
+    <Compile Include="Interfaces\IUnitOFWork.cs" />
     <Compile Include="Interfaces\IValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
