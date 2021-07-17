@@ -6,8 +6,8 @@ namespace VendingMachine.Domain.Models
 {
     public class CartItem
     {
-        public int Qty { get; }
-        public SellItemModel SellItem { get; }
+        public int Qty { get; set; }
+        public SellItemModel SellItem { get; set; }
 
         public CartItem()
         {

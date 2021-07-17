@@ -68,8 +68,10 @@
     <Compile Include="DataMapper\LocationMapper.cs" />
     <Compile Include="DataMapper\VendingMachineMapper.cs" />
     <Compile Include="Repositories\VendingMachineRepository.cs" />
+    <Compile Include="Tables\BalanceTableRecord.cs" />
+    <Compile Include="Tables\CarItemTableRecord.cs" />
     <Compile Include="Tables\CellTableRecord.cs" />
-    <Compile Include="Tables\InsideBalanceTableRecord.cs" />
+    <Compile Include="Tables\CustomerSessionTableRecord.cs" />
     <Compile Include="Tables\LocationTableRecord.cs" />
     <Compile Include="Tables\SellItemTableRecord.cs" />
     <Compile Include="Tables\UserTableRecord.cs" />
