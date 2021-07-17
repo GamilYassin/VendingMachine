@@ -7,6 +7,5 @@
     [LastMaintDate] DATETIME2 (7) NOT NULL,
     [GrandBalance]  NVARCHAR (50) NULL,
     [StartDate]     DATETIME2 (7) NOT NULL,
-    [EndOfLifeDate] DATETIME2 (7) NOT NULL,
     [State]         NVARCHAR (50) NOT NULL,
 )

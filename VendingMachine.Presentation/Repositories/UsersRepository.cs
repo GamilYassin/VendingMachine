@@ -23,7 +23,7 @@ namespace VendingMachine.Presentation.Repositories
             {
                 UserRecord userRecord = dbContext.UserRecords.Select(x => x).Where(x => x.Id == id).First();
 
-                return map.MapBackward(userRecord);
+                return map.MapFromTable(userRecord);
             }
         }
 
@@ -38,7 +38,7 @@ namespace VendingMachine.Presentation.Repositories
 
                 foreach (UserRecord item in userRecords)
                 {
-                    users.Add(map.MapBackward(item));
+                    users.Add(map.MapFromTable(item));
                 }
             }
 
@@ -73,7 +73,7 @@ namespace VendingMachine.Presentation.Repositories
         public void InsertUser(User user)
         {
             UsersModelMapper map = new UsersModelMapper();
-            InsertUser(map.MapForward(user));
+            InsertUser(map.MapFromDomain(user));
         }
 
         public void InsertUser(UserRecord user)
@@ -99,7 +99,7 @@ namespace VendingMachine.Presentation.Repositories
         public void UpdateUser(User user)
         {
             UsersModelMapper map = new UsersModelMapper();
-            UpdateUser(map.MapForward(user));
+            UpdateUser(map.MapFromDomain(user));
         }
 
         public void DeleteUser(int id)

@@ -21,9 +21,9 @@ namespace VendingMachine.Domain.ValueObjects
 
         #region Properties
 
-        public string City { get; protected set; }
-        public string LandMark { get; protected set; }
-        public string Street { get; protected set; }
+        public string City { get; set; }
+        public string LandMark { get; set; }
+        public string Street { get; set; }
 
         #endregion Properties
 

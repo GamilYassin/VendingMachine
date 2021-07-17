@@ -50,12 +50,12 @@
     <Compile Include="Base\EntityBase.cs" />
     <Compile Include="ValueObjects\Cell.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\VendingMachine.cs" />
+    <Compile Include="Entities\VendingMachineModel.cs" />
     <Compile Include="Enums\Currency.cs" />
     <Compile Include="Enums\CustomerSessionStatus.cs" />
     <Compile Include="Enums\SellItemType.cs" />
     <Compile Include="Enums\UserPrivilege.cs" />
-    <Compile Include="Enums\VMState.cs" />
+    <Compile Include="Enums\VendingMachineStateEnum.cs" />
     <Compile Include="Exceptions\NegativeMoneyAmountException.cs" />
     <Compile Include="Exceptions\NotSameCurrencyException.cs" />
     <Compile Include="Exceptions\NotSameSellItemException.cs" />

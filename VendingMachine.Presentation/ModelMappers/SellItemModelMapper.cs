@@ -14,7 +14,7 @@ namespace VendingMachine.Presentation.ModelMappers
 	{
 		#region Methods
 
-		public SellItem MapBackward(SellItemRecord databaseModel)
+		public SellItem MapFromTable(SellItemRecord databaseModel)
 		{
 			SellItemType itemType = SellItemType.Food;
 
@@ -34,7 +34,7 @@ namespace VendingMachine.Presentation.ModelMappers
 			return sellItem;
 		}
 
-		public SellItemRecord MapForward(SellItem domainModel)
+		public SellItemRecord MapFromDomain(SellItem domainModel)
 		{
 			SellItemRecord sellItemRecord = new SellItemRecord()
 			{

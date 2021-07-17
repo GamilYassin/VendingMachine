@@ -1,12 +1,12 @@
 ﻿namespace VendingMachine.Services.Interfaces
 {
-    public interface IModelMapper<SourceT, DestinationT>
+    public interface IModelMapper<TDomain, TTable>
     {
         #region Methods
 
-        DestinationT MapForward(SourceT domainModel);
+        TTable MapFromDomain(TDomain domainModel);
 
-        SourceT MapBackward(DestinationT databaseModel);
+        void MapFromTable(ref TDomain domainModel, TTable databaseModel);
 
         #endregion Methods
     }

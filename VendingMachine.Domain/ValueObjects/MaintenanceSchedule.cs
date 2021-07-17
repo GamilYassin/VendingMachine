@@ -1,4 +1,5 @@
-﻿using VendingMachine.Services.Interfaces;
+﻿using System;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.ValueObjects
 {

@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="DataManager\DataManagerBase.cs" />
     <Compile Include="DataManager\SqlDataManager.cs" />
+    <Compile Include="DataMapper\LocationMapper.cs" />
+    <Compile Include="DataMapper\VendingMachineMapper.cs" />
     <Compile Include="Repositories\VendingMachineRepository.cs" />
     <Compile Include="Tables\CellTableRecord.cs" />
     <Compile Include="Tables\InsideBalanceTableRecord.cs" />

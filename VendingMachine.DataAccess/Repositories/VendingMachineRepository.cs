@@ -4,10 +4,11 @@ using VendingMachine.Services.Interfaces;
 using VendingMachine.Domain;
 using VendingMachine.DataAccess.UnitOfWork;
 using VendingMachine.DataAccess.Tables;
+using VendingMachine.Domain.Entities;
 
 namespace VendingMachine.DataAccess.Repositories
 {
-    public class VendingMachineRepository : IRepository<Domain.Entities.VendingMachine>
+    public class VendingMachineRepository : IRepository<VendingMachineModel>
     {
         private SqlUnitofWorkBase<VendingMachineTableRecord> vmUnitofWork;
         private SqlUnitofWorkBase<LocationTableRecord> locationUnitofWork;
@@ -23,7 +24,7 @@ namespace VendingMachine.DataAccess.Repositories
         }
 
 
-        public int AddModel(Domain.Entities.VendingMachine model, bool commit = false)
+        public int AddModel(VendingMachineModel model, bool commit = false)
         {
             vmUnitofWork.AddModel(model, commit);
 
@@ -34,12 +35,12 @@ namespace VendingMachine.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public bool Contains(Domain.Entities.VendingMachine model)
+        public bool Contains(VendingMachineModel model)
         {
             throw new NotImplementedException();
         }
 
-        public int DeleteModel(Domain.Entities.VendingMachine model, bool commit = false)
+        public int DeleteModel(VendingMachineModel model, bool commit = false)
         {
             throw new NotImplementedException();
         }
@@ -49,12 +50,12 @@ namespace VendingMachine.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Domain.Entities.VendingMachine> FindAll()
+        public IEnumerable<VendingMachineModel> FindAll()
         {
             throw new NotImplementedException();
         }
 
-        public Domain.Entities.VendingMachine FindById(int id)
+        public VendingMachineModel FindById(int id)
         {
             throw new NotImplementedException();
         }
@@ -64,7 +65,7 @@ namespace VendingMachine.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public int UpdateModel(Domain.Entities.VendingMachine model, bool commit = false)
+        public int UpdateModel(VendingMachineModel model, bool commit = false)
         {
             throw new NotImplementedException();
         }

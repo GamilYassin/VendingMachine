@@ -9,7 +9,7 @@ namespace VendingMachine.Presentation.ModelMappers
     {
         #region Methods
 
-        public User MapBackward(UserRecord databaseModel)
+        public User MapFromTable(UserRecord databaseModel)
         {
 
             User user = new User()
@@ -25,7 +25,7 @@ namespace VendingMachine.Presentation.ModelMappers
             return user;
         }
 
-        public UserRecord MapForward(User domainModel)
+        public UserRecord MapFromDomain(User domainModel)
         {
             UserRecord userRecord = new UserRecord()
             {
