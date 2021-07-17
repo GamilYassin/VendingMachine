@@ -39,5 +39,10 @@ namespace VendingMachine.FormsUI
 			txtCustomerBalance.Text = custBalance.ToString();
 			txtMainDisplay.Text = custBalance.ToString();
 		}
-	}
+
+        private void txtMainDisplay_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
