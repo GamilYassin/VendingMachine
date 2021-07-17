@@ -4,7 +4,7 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.DataManager
 {
-    public abstract class DataManagerBase<T> : IDataManager<T> where T : IEntity, new()
+    public abstract class DataManagerBase<T> : IDataManager<T> where T : ITable, new()
     {
         public string ConnectionIdentifier { get; protected set; }
 
