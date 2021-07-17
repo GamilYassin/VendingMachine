@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="DataManager\DataManagerBase.cs" />
     <Compile Include="DataManager\SqlDataManager.cs" />
+    <Compile Include="Repositories\VendingMachineRepository.cs" />
     <Compile Include="Tables\CellTableRecord.cs" />
     <Compile Include="Tables\InsideBalanceTableRecord.cs" />
     <Compile Include="Tables\LocationTableRecord.cs" />
@@ -78,6 +79,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.Domain\VendingMachine.Domain.csproj">
+      <Project>{41b8e785-5ef9-49a3-bead-fb971ad93039}</Project>
+      <Name>VendingMachine.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.Services.csproj">
       <Project>{BC66D220-9518-44F9-B608-3048B17E116E}</Project>
       <Name>VendingMachine.Services</Name>

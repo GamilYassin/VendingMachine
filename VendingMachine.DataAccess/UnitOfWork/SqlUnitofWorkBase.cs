@@ -27,22 +27,65 @@ namespace VendingMachine.DataAccess.UnitOfWork
             }
         }
 
-        public void Commit()
+        public int AddModel(T model, bool commit = false)
         {
+            RegisterNew(model);
+            if (commit)
+                return Commit();
+            return 1;
+        }
+
+        public int Commit()
+        {
+            int affected = 0;
             if (newModels != null)
             {
-                _ = sqlDataManager.Insert(newModels);
+                affected += sqlDataManager.Insert(newModels);
             }
 
             if (deletedModels != null)
             {
-                _ = sqlDataManager.Delete(deletedModels);
+                affected += sqlDataManager.Delete(deletedModels);
             }
 
             if (changedModel != null)
             {
-                _ = sqlDataManager.Update(changedModel);
+                affected += sqlDataManager.Update(changedModel);
             }
+            return affected;
+        }
+
+        public bool Contains(T model)
+        {
+            return sqlDataManager.Contains(model);
+        }
+
+        public int DeleteModel(T model, bool commit = false)
+        {
+            RegisterDeleted(model);
+            if (commit)
+                return Commit();
+            return 1;
+        }
+
+        public int DeleteModelById(int id, bool commit = false)
+        {
+            T model = sqlDataManager.FindById(id);
+            if (model != null)
+            {
+                return DeleteModel(model);
+            }
+            return 0;
+        }
+
+        public IEnumerable<T> FindAll()
+        {
+            return sqlDataManager.FindAll();
+        }
+
+        public T FindById(int id)
+        {
+            return sqlDataManager.FindById(id);
         }
 
         public bool IsCommitted()
@@ -54,19 +97,32 @@ namespace VendingMachine.DataAccess.UnitOfWork
             return isNewEmpty && isChangedEmpty && isDeletedEmpty;
         }
 
-        public void RegisterChanged(T model)
+        public int RecordsCount()
+        {
+            return sqlDataManager.RecordsCount();
+        }
+
+        protected void RegisterChanged(T model)
         {
             changedModel.Add(model);
         }
 
-        public void RegisterDeleted(T model)
+        protected void RegisterDeleted(T model)
         {
             deletedModels.Add(model);
         }
 
-        public void RegisterNew(T model)
+        protected void RegisterNew(T model)
         {
             newModels.Add(model);
+        }
+
+        public int UpdateModel(T model, bool commit = false)
+        {
+            RegisterChanged(model);
+            if (commit)
+                return Commit();
+            return 1;
         }
     }
 }

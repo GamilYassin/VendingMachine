@@ -6,7 +6,7 @@ namespace VendingMachine.DataAccess.DataManager
 {
     public abstract class DataManagerBase<T> : IDataManager<T> where T : ITable
     {
-        protected string ConnectionIdentifier { get; set; }
+        public string ConnectionIdentifier { get; set; }
 
         protected DataManagerBase()
         {
@@ -21,5 +21,8 @@ namespace VendingMachine.DataAccess.DataManager
         public abstract int Insert(IEnumerable<T> models);
         public abstract int Update(IEnumerable<T> models);
         public abstract int Delete(IEnumerable<T> models);
+        public abstract bool Contains(T model);
+        public abstract bool Contains(int id);
+        public abstract int RecordsCount();
     }
 }

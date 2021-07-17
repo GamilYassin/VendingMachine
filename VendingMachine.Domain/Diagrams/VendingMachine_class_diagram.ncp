@@ -1,0 +1,586 @@
+<Project>
+  <Name>VendingMachine</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Enumeration</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Enum">
+        <Name>VMState</Name>
+        <Access>Public</Access>
+        <Location left="30" top="32" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Starting = 0</Value>
+        <Value>Operational = 1</Value>
+        <Value>OnHold = 2</Value>
+        <Value>OnMaintenance = 3</Value>
+        <Value>Defect = 4</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>Currency</Name>
+        <Access>Public</Access>
+        <Location left="880" top="32" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>US = 0</Value>
+        <Value>SAR = 1</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>CustomerSessionStatus</Name>
+        <Access>Public</Access>
+        <Location left="668" top="32" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Active = 0</Value>
+        <Value>Cancelled = 1</Value>
+        <Value>Completed = 2</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>SellItemType</Name>
+        <Access>Public</Access>
+        <Location left="456" top="32" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Food = 0</Value>
+        <Value>Drink = 1</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>UserPrivilege</Name>
+        <Access>Public</Access>
+        <Location left="244" top="32" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Customer = 0</Value>
+        <Value>Operator = 1</Value>
+        <Value>Maintenance = 2</Value>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>VendingMachine.Domain.dll</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Balance</Name>
+        <Access>Public</Access>
+        <Location left="890" top="721" />
+        <Size width="162" height="553" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static Balance Empty</Member>
+        <Member type="Field">public static Balance Cent</Member>
+        <Member type="Field">public static Balance Nickel</Member>
+        <Member type="Field">public static Balance Dime</Member>
+        <Member type="Field">public static Balance Quarter</Member>
+        <Member type="Field">public static Balance Dollar</Member>
+        <Member type="Field">public static Balance FiveDollar</Member>
+        <Member type="Field">public static Balance TenDollar</Member>
+        <Member type="Field">public static Balance TwentyDollar</Member>
+        <Member type="Property">public Int32 CentCount { get; }</Member>
+        <Member type="Property">public Int32 NickelCount { get; }</Member>
+        <Member type="Property">public Int32 DimeCount { get; }</Member>
+        <Member type="Property">public Int32 QuarterCount { get; }</Member>
+        <Member type="Property">public Int32 DollarCount { get; }</Member>
+        <Member type="Property">public Int32 FiveDollarCount { get; }</Member>
+        <Member type="Property">public Int32 TenDollarCount { get; }</Member>
+        <Member type="Property">public Int32 TwentyDollarCount { get; }</Member>
+        <Member type="Constructor">public Balance(Int32 centcount, Int32 nickelcount, Int32 dimecount, Int32 quartercount, Int32 dollarcount, Int32 fivedollarcount, Int32 tendollarcount, Int32 twentydollarcount)</Member>
+        <Member type="Constructor">static Balance()</Member>
+        <Member type="Method">public Money CalculateAmount()</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Member type="Method">public Balance Add(Balance obj)</Member>
+        <Member type="Method">public Balance Subtract(Balance obj)</Member>
+        <Member type="Method">public static Balance operator +(Balance balance1, Balance balance2)</Member>
+        <Member type="Method">public static Balance operator -(Balance balance1, Balance balance2)</Member>
+        <Member type="Method">public static Balance operator *(Balance balance1, Balance balance2)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CartItem</Name>
+        <Access>Public</Access>
+        <Location left="671" top="747" />
+        <Size width="162" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Int32 Qty { get; }</Member>
+        <Member type="Property">public SellItem SellItem { get; }</Member>
+        <Member type="Constructor">public CartItem()</Member>
+        <Member type="Constructor">public CartItem(Int32 qty, SellItem sellItem)</Member>
+        <Member type="Method">public CartItem Add(CartItem obj)</Member>
+        <Member type="Method">public CartItem Add(Int32 addQty)</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Member type="Method">public CartItem Subtract(CartItem obj)</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CustomerSession</Name>
+        <Access>Public</Access>
+        <Location left="416" top="343" />
+        <Size width="162" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Balance CustomerBalance { get; set; }</Member>
+        <Member type="Property">public CustomerSessionStatus Status { get; set; }</Member>
+        <Member type="Property">public List&lt;CartItem&gt; CartItems { get; }</Member>
+        <Member type="Constructor">public CustomerSession()</Member>
+        <Member type="Constructor">public CustomerSession(Balance custBalance, CustomerSessionStatus custStatus)</Member>
+        <Member type="Constructor">public CustomerSession(Balance custBalance)</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Member type="Method">public Void Add(List&lt;CartItem&gt; cartItems)</Member>
+        <Member type="Method">public Void AddCartItem(CartItem cartItem)</Member>
+        <Member type="Method">public Money CalculateCartAmount()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Location</Name>
+        <Access>Public</Access>
+        <Location left="224" top="687" />
+        <Size width="162" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String City { get; protected set; }</Member>
+        <Member type="Property">public String LandMark { get; protected set; }</Member>
+        <Member type="Property">public String Street { get; protected set; }</Member>
+        <Member type="Constructor">public Location(String street, String city, String landMark)</Member>
+        <Member type="Constructor">public Location()</Member>
+        <Member type="Method">public static Location LocationFactory(String street, String city, String landMark)</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>MaintenanceSchedule</Name>
+        <Access>Public</Access>
+        <Location left="12" top="687" />
+        <Size width="162" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Int32 DefaultFrequency</Member>
+        <Member type="Property">public Int32 Frequency { get; set; }</Member>
+        <Member type="Property">public Date LastMaintDate { get; set; }</Member>
+        <Member type="Constructor">public MaintenanceSchedule(Int32 frequency, Date lastMaintDate)</Member>
+        <Member type="Constructor">public MaintenanceSchedule()</Member>
+        <Member type="Constructor">public MaintenanceSchedule(Int32 frequency)</Member>
+        <Member type="Constructor">static MaintenanceSchedule()</Member>
+        <Member type="Method">public static MaintenanceSchedule MaintenanceScheduleFactory(Int32 frequency, Date dateVal)</Member>
+        <Member type="Method">public Date GetNextMaintDate()</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SellItem</Name>
+        <Access>Public</Access>
+        <Location left="224" top="343" />
+        <Size width="162" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String Name { get; set; }</Member>
+        <Member type="Property">public Money Price { get; set; }</Member>
+        <Member type="Property">public String Barcode { get; set; }</Member>
+        <Member type="Property">public SellItemType ItemType { get; set; }</Member>
+        <Member type="Property">public Int32 GrandTotal { get; set; }</Member>
+        <Member type="Property">public Money GrandSellAmount { get; set; }</Member>
+        <Member type="Constructor">public SellItem()</Member>
+        <Member type="Constructor">public SellItem(String name, Money price, String barCode, SellItemType itemType, Int32 grandTotal, Money grandAmount)</Member>
+        <Member type="Constructor">public SellItem(String name)</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Cell</Name>
+        <Access>Public</Access>
+        <Location left="434" top="747" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String CellId { get; }</Member>
+        <Member type="Property">public SellItem SellItem { get; }</Member>
+        <Member type="Property">public Int32 SellItemQty { get; }</Member>
+        <Member type="Constructor">public Cell(String cellId, SellItem sellItem, Int32 itemQty)</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>User</Name>
+        <Access>Public</Access>
+        <Location left="12" top="343" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String UserName { get; set; }</Member>
+        <Member type="Property">public String UserPassword { get; set; }</Member>
+        <Member type="Property">public UserPrivilege Privilege { get; set; }</Member>
+        <Member type="Constructor">public User()</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>VendingMachine</Name>
+        <Access>Public</Access>
+        <Location left="659" top="343" />
+        <Size width="352" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Location VMLocation { get; set; }</Member>
+        <Member type="Property">public String Model { get; set; }</Member>
+        <Member type="Property">public String Manufacturer { get; set; }</Member>
+        <Member type="Property">public MaintenanceSchedule VMMaintenanceSchedule { get; set; }</Member>
+        <Member type="Property">public Money GrandBalance { get; set; }</Member>
+        <Member type="Property">public Money CustomerBalance { get; set; }</Member>
+        <Member type="Property">public Balance InsideBalance { get; set; }</Member>
+        <Member type="Property">public Date StartDate { get; set; }</Member>
+        <Member type="Property">public IList&lt;Cell&gt; Cells { get; set; }</Member>
+        <Member type="Property">public VMState State { get; set; }</Member>
+        <Member type="Constructor">public VendingMachine()</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EntityBase</Name>
+        <Access>Public</Access>
+        <Location left="525" top="23" />
+        <Size width="327" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">static EntityBase()</Member>
+        <Member type="Constructor">public EntityBase(Int32 id)</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Member type="Method">public abstract override String ToString()</Member>
+        <Member type="Method">public static Boolean operator ==(EntityBase base1, EntityBase base2)</Member>
+        <Member type="Method">public static Boolean operator !=(EntityBase base1, EntityBase base2)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="2" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="5" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="8" second="9">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>609</X>
+          <Y>335</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>Empty</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>Cent</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>Nickel</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>Dime</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>Quarter</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>Dollar</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>FiveDollar</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>TenDollar</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>TwentyDollar</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>ValueObjects</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Date</Name>
+        <Access>Public</Access>
+        <Location left="51" top="39" />
+        <Size width="347" height="451" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Date Now</Member>
+        <Member type="Field">public String DefaultDateFormat</Member>
+        <Member type="Property">public DateTime Value { get; set; }</Member>
+        <Member type="Constructor">public Date(DateTime dateVal)</Member>
+        <Member type="Constructor">static Date()</Member>
+        <Member type="Method">public static Date DateFactory(DateTime dateVal)</Member>
+        <Member type="Method">public static Date DateFactory(Int32 year, Int32 month, Int32 day)</Member>
+        <Member type="Method">public Date AddYears(Int32 years)</Member>
+        <Member type="Method">public Date AddMonths(Int32 months)</Member>
+        <Member type="Method">public Date AddDays(Int32 days)</Member>
+        <Member type="Method">public Date SubtractYears(Int32 years)</Member>
+        <Member type="Method">public Date SubtractMonths(Int32 months)</Member>
+        <Member type="Method">public Date SubtractDays(Int32 days)</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Member type="Method">public Date Add(Date obj)</Member>
+        <Member type="Method">public Date Subtract(Date obj)</Member>
+        <Member type="Method">public static Date operator +(Date date1, Date date2)</Member>
+        <Member type="Method">public static Date operator -(Date date1, Date date2)</Member>
+        <Member type="Method">public static Boolean operator ==(Date date1, Date date2)</Member>
+        <Member type="Method">public static Boolean operator !=(Date date1, Date date2)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Money</Name>
+        <Access>Public</Access>
+        <Location left="487" top="39" />
+        <Size width="364" height="468" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static String DefaultCurrency</Member>
+        <Member type="Field">public static Money Empty</Member>
+        <Member type="Property">public Decimal Amount { get; }</Member>
+        <Member type="Property">public String Currency { get; }</Member>
+        <Member type="Constructor">public Money(Decimal amount, String currency)</Member>
+        <Member type="Constructor">public Money()</Member>
+        <Member type="Constructor">static Money()</Member>
+        <Member type="Method">public static Money MoneyFactory(Decimal amount)</Member>
+        <Member type="Method">public static Money MoneyFactory(String moneyField)</Member>
+        <Member type="Method">public Money ConvertToCurrency(Decimal rate, String newCurrency)</Member>
+        <Member type="Method">public override Boolean Equals(Object obj)</Member>
+        <Member type="Method">public override Int32 GetHashCode()</Member>
+        <Member type="Method">public override String ToString()</Member>
+        <Member type="Method">public Money Add(Money obj)</Member>
+        <Member type="Method">public Money Subtract(Money obj)</Member>
+        <Member type="Method">public String MoneyField()</Member>
+        <Member type="Method">public static Money operator *(Money money1, Decimal val)</Member>
+        <Member type="Method">public static Money operator +(Money money1, Money money2)</Member>
+        <Member type="Method">public static Money operator -(Money money1, Money money2)</Member>
+        <Member type="Method">public static Boolean operator &lt;(Money money1, Money money2)</Member>
+        <Member type="Method">public static Boolean operator &gt;(Money money1, Money money2)</Member>
+        <Member type="Method">public static Boolean operator ==(Money money1, Money money2)</Member>
+        <Member type="Method">public static Boolean operator !=(Money money1, Money money2)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>VendingMachine_Aggregate</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>VendingMachine</Name>
+        <Access>Public</Access>
+        <Location left="354" top="166" />
+        <Size width="335" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Location VMLocation { get; set; }</Member>
+        <Member type="Property">public String Model { get; set; }</Member>
+        <Member type="Property">public String Manufacturer { get; set; }</Member>
+        <Member type="Property">public MaintenanceSchedule VMMaintenanceSchedule { get; set; }</Member>
+        <Member type="Property">public Money GrandBalance { get; set; }</Member>
+        <Member type="Property">public Money CustomerBalance { get; set; }</Member>
+        <Member type="Property">public Balance InsideBalance { get; set; }</Member>
+        <Member type="Property">public Date StartDate { get; set; }</Member>
+        <Member type="Property">public IList&lt;Cell&gt; Cells { get; set; }</Member>
+        <Member type="Property">public VMState State { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Location</Name>
+        <Access>Public</Access>
+        <Location left="104" top="181" />
+        <Size width="191" height="131" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String City { get; protected set; }</Member>
+        <Member type="Property">public String LandMark { get; protected set; }</Member>
+        <Member type="Property">public String Street { get; protected set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>MaintenanceSchedule</Name>
+        <Access>Public</Access>
+        <Location left="743" top="181" />
+        <Size width="202" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Int32 DefaultFrequency</Member>
+        <Member type="Property">public Int32 Frequency { get; set; }</Member>
+        <Member type="Property">public Date LastMaintDate { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Balance</Name>
+        <Access>Public</Access>
+        <Location left="80" top="380" />
+        <Size width="207" height="366" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static Balance Empty</Member>
+        <Member type="Field">public static Balance Cent</Member>
+        <Member type="Field">public static Balance Nickel</Member>
+        <Member type="Field">public static Balance Dime</Member>
+        <Member type="Field">public static Balance Quarter</Member>
+        <Member type="Field">public static Balance Dollar</Member>
+        <Member type="Field">public static Balance FiveDollar</Member>
+        <Member type="Field">public static Balance TenDollar</Member>
+        <Member type="Field">public static Balance TwentyDollar</Member>
+        <Member type="Property">public Int32 CentCount { get; }</Member>
+        <Member type="Property">public Int32 NickelCount { get; }</Member>
+        <Member type="Property">public Int32 DimeCount { get; }</Member>
+        <Member type="Property">public Int32 QuarterCount { get; }</Member>
+        <Member type="Property">public Int32 DollarCount { get; }</Member>
+        <Member type="Property">public Int32 FiveDollarCount { get; }</Member>
+        <Member type="Property">public Int32 TenDollarCount { get; }</Member>
+        <Member type="Property">public Int32 TwentyDollarCount { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Cell</Name>
+        <Access>Public</Access>
+        <Location left="377" top="488" />
+        <Size width="232" height="134" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String CellId { get; }</Member>
+        <Member type="Property">public SellItem SellItem { get; }</Member>
+        <Member type="Property">public Int32 SellItemQty { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SellItem</Name>
+        <Access>Public</Access>
+        <Location left="721" top="449" />
+        <Size width="226" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String Name { get; set; }</Member>
+        <Member type="Property">public Money Price { get; set; }</Member>
+        <Member type="Property">public String Barcode { get; set; }</Member>
+        <Member type="Property">public SellItemType ItemType { get; set; }</Member>
+        <Member type="Property">public Int32 GrandTotal { get; set; }</Member>
+        <Member type="Property">public Money GrandSellAmount { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>329</X>
+          <Y>329</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="4">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="4" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>634</X>
+          <Y>572</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>696</X>
+          <Y>533</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

@@ -24,6 +24,11 @@ namespace VendingMachine.Services.Interfaces
 
         int Delete(T model);
         int Delete(IEnumerable<T> models);
+
+        bool Contains(T model);
+        bool Contains(int id);
+
+        int RecordsCount();
         #endregion Methods
     }
 }

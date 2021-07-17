@@ -161,8 +161,6 @@ namespace VendingMachine.DataAccess.DataManager
             }
         }
 
-
-
         public override int Delete(T model)
         {
             try
@@ -206,6 +204,39 @@ namespace VendingMachine.DataAccess.DataManager
             catch (Exception ex)
             {
                 Log.Error(ex, "SQL Data Manager Delete error");
+                return 0;
+            }
+        }
+
+        public override bool Contains(T model)
+        {
+            return Contains(model.Id);
+        }
+
+        public override bool Contains(int id)
+        {
+            if (FindById(id) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override int RecordsCount()
+        {
+            try
+            {
+                string tableName = DataBaseServices.GetTableName(default(T));
+                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
+                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+                {
+                    return db.Query(tableName)
+                             .Count<int>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "SQL Data Manager Find All error");
                 return 0;
             }
         }

@@ -29,11 +29,6 @@ namespace VendingMachine.Domain.ValueObjects
 
         #region Methods
 
-        public static Location LocationFactory(string street, string city, string landMark)
-        {
-            return new Location(street, city, landMark);
-        }
-
         public override string ToString()
         {
             string result;
