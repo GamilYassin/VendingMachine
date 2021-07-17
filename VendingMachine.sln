@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Services", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.FormsUI", "VendingMachine.FormsUI\VendingMachine.FormsUI.csproj", "{E0D4FCB7-3503-449A-A564-12459ED16C8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Presentation", "VendingMachine.Presentation\VendingMachine.Presentation.csproj", "{F2674448-0C96-4588-8410-2479BF35EDC6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.WPF", "VendingMachine.WPF\VendingMachine.WPF.csproj", "{F9FF4F95-3E2A-4130-874B-C83C2924DD40}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "VendingMachine.SqlDataBase", "VendingMachine.SqlDataBase\VendingMachine.SqlDataBase.sqlproj", "{63208176-F15C-4554-BE1B-D003D8E5DB91}"
@@ -41,10 +39,6 @@ Global
 		{E0D4FCB7-3503-449A-A564-12459ED16C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0D4FCB7-3503-449A-A564-12459ED16C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0D4FCB7-3503-449A-A564-12459ED16C8C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2674448-0C96-4588-8410-2479BF35EDC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2674448-0C96-4588-8410-2479BF35EDC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2674448-0C96-4588-8410-2479BF35EDC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2674448-0C96-4588-8410-2479BF35EDC6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9FF4F95-3E2A-4130-874B-C83C2924DD40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9FF4F95-3E2A-4130-874B-C83C2924DD40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9FF4F95-3E2A-4130-874B-C83C2924DD40}.Release|Any CPU.ActiveCfg = Release|Any CPU

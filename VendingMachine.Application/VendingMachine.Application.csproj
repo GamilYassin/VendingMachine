@@ -54,10 +54,6 @@
       <Project>{41b8e785-5ef9-49a3-bead-fb971ad93039}</Project>
       <Name>VendingMachine.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VendingMachine.Presentation\VendingMachine.Presentation.csproj">
-      <Project>{f2674448-0c96-4588-8410-2479bf35edc6}</Project>
-      <Name>VendingMachine.Presentation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.Services.csproj">
       <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
       <Name>VendingMachine.Services</Name>
