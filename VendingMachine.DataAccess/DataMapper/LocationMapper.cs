@@ -1,5 +1,5 @@
 ﻿using VendingMachine.DataAccess.Tables;
-using VendingMachine.Domain.Entities;
+using VendingMachine.Domain.Models;
 using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.DataMapper

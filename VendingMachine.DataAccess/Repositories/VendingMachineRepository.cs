@@ -4,7 +4,7 @@ using VendingMachine.Services.Interfaces;
 using VendingMachine.Domain;
 using VendingMachine.DataAccess.UnitOfWork;
 using VendingMachine.DataAccess.Tables;
-using VendingMachine.Domain.Entities;
+using VendingMachine.Domain.Models;
 
 namespace VendingMachine.DataAccess.Repositories
 {

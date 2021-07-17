@@ -1,7 +1,7 @@
 using VendingMachine.Domain.Base;
 using VendingMachine.Domain.Enums;
 
-namespace VendingMachine.Domain.Entities
+namespace VendingMachine.Domain.Models
 {
     public class User : EntityBase
     {

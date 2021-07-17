@@ -4,7 +4,7 @@ using VendingMachine.Domain.Enums;
 using VendingMachine.Domain.ValueObjects;
 using VendingMachine.Services.Interfaces;
 
-namespace VendingMachine.Domain.Entities
+namespace VendingMachine.Domain.Models
 {
     public class VendingMachineModel : EntityBase, IAggregateRoot
     {

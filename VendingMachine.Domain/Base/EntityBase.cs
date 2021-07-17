@@ -25,8 +25,6 @@ namespace VendingMachine.Domain.Base
 
         #endregion Properties
 
-
-
         public override bool Equals(object obj)
         {
             if (obj is null)
@@ -38,7 +36,8 @@ namespace VendingMachine.Domain.Base
 
         public static bool operator ==(EntityBase base1, EntityBase base2)
         {
-            return ((base1 == null) && (base2 == null)) || (base1 != null && base2 != null && base1.Equals(base2));
+            return ((base1 == null) && (base2 == null)) 
+                || (base1 != null && base2 != null && base1.Equals(base2));
         }
 
         public static bool operator !=(EntityBase base1, EntityBase base2)

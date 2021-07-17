@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
 using VendingMachine.DataAccess.Tables;
-using VendingMachine.Domain.Entities;
+using VendingMachine.Domain.Models;
 using VendingMachine.Domain.Enums;
 using VendingMachine.Domain.ValueObjects;
 using VendingMachine.Services.EnumerationBase;

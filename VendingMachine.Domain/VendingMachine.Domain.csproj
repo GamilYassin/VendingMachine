@@ -49,8 +49,8 @@
   <ItemGroup>
     <Compile Include="Base\EntityBase.cs" />
     <Compile Include="ValueObjects\Cell.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\VendingMachineModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\VendingMachineModel.cs" />
     <Compile Include="Enums\Currency.cs" />
     <Compile Include="Enums\CustomerSessionStatus.cs" />
     <Compile Include="Enums\SellItemType.cs" />
@@ -62,12 +62,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\Balance.cs" />
     <Compile Include="ValueObjects\CartItem.cs" />
-    <Compile Include="Entities\CustomerSession.cs" />
+    <Compile Include="Models\CustomerSession.cs" />
     <Compile Include="ValueObjects\Date.cs" />
     <Compile Include="ValueObjects\Location.cs" />
     <Compile Include="ValueObjects\MaintenanceSchedule.cs" />
     <Compile Include="ValueObjects\Money.cs" />
-    <Compile Include="Entities\SellItem.cs" />
+    <Compile Include="Models\SellItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.Services.csproj">
