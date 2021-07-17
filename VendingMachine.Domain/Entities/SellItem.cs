@@ -13,12 +13,12 @@ namespace VendingMachine.Domain.ValueObjects
 
         public SellItem(string name, Money price, string barCode, SellItemType itemType, int grandTotal, Money grandAmount)
         {
-            this.Name = name;
-            this.Price = price;
-            this.Barcode = barCode;
-            this.ItemType = itemType;
-            this.GrandTotal = grandTotal;
-            this.GrandSellAmount = grandAmount;
+            Name = name;
+            Price = price;
+            Barcode = barCode;
+            ItemType = itemType;
+            GrandTotal = grandTotal;
+            GrandSellAmount = grandAmount;
         }
 
         public SellItem(string name) : this(name, new Money(), string.Empty, SellItemType.Food, 0, new Money())

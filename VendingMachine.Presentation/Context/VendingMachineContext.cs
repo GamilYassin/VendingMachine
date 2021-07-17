@@ -51,7 +51,7 @@ namespace VendingMachine.Presentation.Context
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(this.connectionString);
+			optionsBuilder.UseSqlServer(connectionString);
 			base.OnConfiguring(optionsBuilder);
 		}
 

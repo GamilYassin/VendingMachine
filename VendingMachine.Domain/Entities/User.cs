@@ -8,5 +8,10 @@ namespace VendingMachine.Domain.Entities
 		public string UserName { get; set; }
 		public string UserPassword { get; set; }
 		public UserPrivilege Privilege { get; set; }
-	}
+
+        public override string ToString()
+        {
+            return UserName;
+        }
+    }
 }

@@ -15,8 +15,8 @@ namespace VendingMachine.Domain.ValueObjects
 
         public CartItem(int qty, SellItem sellItem)
         {
-            this.Qty = qty;
-            this.SellItem = sellItem;
+            Qty = qty;
+            SellItem = sellItem;
         }
 
         public CartItem Add(CartItem obj)
@@ -25,10 +25,10 @@ namespace VendingMachine.Domain.ValueObjects
                 throw new NullReferenceException("CartItem can not be null");
 
             CartItem otherItem = obj;
-            if (this.SellItem != otherItem.SellItem)
+            if (SellItem != otherItem.SellItem)
                 throw new NotSameSellItemException();
 
-            return new CartItem(this.Qty + otherItem.Qty, this.SellItem);
+            return new CartItem(Qty + otherItem.Qty, SellItem);
         }
 
         public CartItem Add(int addQty)
@@ -36,7 +36,7 @@ namespace VendingMachine.Domain.ValueObjects
             if (addQty < 0)
                 throw new Exception("Qty can not be empty");
 
-            return new CartItem(this.Qty + addQty, this.SellItem);
+            return new CartItem(Qty + addQty, SellItem);
         }
 
         public override bool Equals(object obj)
@@ -46,10 +46,10 @@ namespace VendingMachine.Domain.ValueObjects
 
             CartItem otherItem = (CartItem)obj;
 
-            if (this.Qty != otherItem.Qty)
+            if (Qty != otherItem.Qty)
                 return false;
 
-            if (this.SellItem != otherItem.SellItem)
+            if (SellItem != otherItem.SellItem)
                 return false;
 
             return true;
@@ -57,7 +57,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public override int GetHashCode()
         {
-            return this.Qty.GetHashCode() ^ this.SellItem.GetHashCode();
+            return Qty.GetHashCode() ^ SellItem.GetHashCode();
         }
 
         public CartItem Subtract(CartItem obj)
@@ -66,19 +66,19 @@ namespace VendingMachine.Domain.ValueObjects
                 throw new NullReferenceException("CartItem can not be null");
 
             CartItem otherItem = obj;
-            if (this.SellItem != otherItem.SellItem)
+            if (SellItem != otherItem.SellItem)
                 throw new NotSameSellItemException();
 
-            int qty = this.Qty - otherItem.Qty;
+            int qty = Qty - otherItem.Qty;
             if (qty < 0)
                 throw new Exception("Qty can not be empty");
 
-            return new CartItem(qty, this.SellItem);
+            return new CartItem(qty, SellItem);
         }
 
         public override string ToString()
         {
-            return $"Sell Item: {this.SellItem.ToString()} Qty: {this.Qty.ToString()}";
+            return $"Sell Item: {SellItem.ToString()} Qty: {Qty.ToString()}";
         }
     }
 }

@@ -18,8 +18,8 @@ namespace VendingMachine.Domain.ValueObjects
 
         public Money(decimal amount, string currency)
         {
-            this.Amount = amount;
-            this.Currency = currency;
+            Amount = amount;
+            Currency = currency;
         }
 
         public Money() : this(0m, DefaultCurrency)
@@ -131,13 +131,13 @@ namespace VendingMachine.Domain.ValueObjects
 
         public Money ConvertToCurrency(decimal rate, string newCurrency)
         {
-            if (string.Compare(this.Currency, newCurrency, true) == 0)
-                return new Money(this.Amount, this.Currency);
+            if (string.Compare(Currency, newCurrency, true) == 0)
+                return new Money(Amount, Currency);
 
             if (rate < 0)
                 throw new NegativeMoneyAmountException();
 
-            return new Money(this.Amount * rate, newCurrency);
+            return new Money(Amount * rate, newCurrency);
         }
 
         public override bool Equals(object obj)
@@ -147,12 +147,12 @@ namespace VendingMachine.Domain.ValueObjects
 
         public override int GetHashCode()
         {
-            return this.Amount.GetHashCode() ^ this.Currency.GetHashCode();
+            return Amount.GetHashCode() ^ Currency.GetHashCode();
         }
 
         public override string ToString()
         {
-            return this.Amount.ToString("N2") + $" {this.Currency.ToString()}";
+            return Amount.ToString("N2") + $" {Currency.ToString()}";
         }
 
         public Money Add(Money obj)
@@ -167,7 +167,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public string MoneyField()
         {
-            return $"{this.Amount.ToString()} {this.Currency}";
+            return $"{Amount.ToString()} {Currency}";
         }
 
         #endregion Methods

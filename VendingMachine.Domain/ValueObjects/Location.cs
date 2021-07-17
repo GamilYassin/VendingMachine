@@ -8,9 +8,9 @@ namespace VendingMachine.Domain.ValueObjects
 
         public Location(string street, string city, string landMark)
         {
-            this.Street = street;
-            this.City = city;
-            this.LandMark = landMark;
+            Street = street;
+            City = city;
+            LandMark = landMark;
         }
 
         public Location() : this(string.Empty, string.Empty, string.Empty)
@@ -37,10 +37,10 @@ namespace VendingMachine.Domain.ValueObjects
         public override string ToString()
         {
             string result;
-            result = $"{this.City}, {this.Street}";
-            if (!string.IsNullOrEmpty(this.LandMark))
+            result = $"{City}, {Street}";
+            if (!string.IsNullOrEmpty(LandMark))
             {
-                result = result + $" nearby {this.LandMark}";
+                result = result + $" nearby {LandMark}";
             }
             return result;
         }
@@ -49,14 +49,14 @@ namespace VendingMachine.Domain.ValueObjects
         {
             Location otherLocation = (Location)obj;
 
-            return (string.Compare(this.Street, otherLocation.Street, true) == 0)
-                    && (string.Compare(this.City, otherLocation.City, true) == 0)
-                    && (string.Compare(this.LandMark, otherLocation.LandMark, true) == 0);
+            return (string.Compare(Street, otherLocation.Street, true) == 0)
+                    && (string.Compare(City, otherLocation.City, true) == 0)
+                    && (string.Compare(LandMark, otherLocation.LandMark, true) == 0);
         }
 
         public override int GetHashCode()
         {
-            return this.Street.GetHashCode() * this.City.GetHashCode() * this.LandMark.GetHashCode();
+            return Street.GetHashCode() * City.GetHashCode() * LandMark.GetHashCode();
         }
 
 

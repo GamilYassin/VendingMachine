@@ -17,8 +17,8 @@ namespace VendingMachine.Domain.ValueObjects
 
         public CustomerSession(Balance custBalance, CustomerSessionStatus custStatus)
         {
-            this.CartItems = new List<CartItem>();
-            this.Status = custStatus;
+            CartItems = new List<CartItem>();
+            Status = custStatus;
         }
 
         public CustomerSession(Balance custBalance) : this(custBalance, CustomerSessionStatus.Active)
@@ -27,7 +27,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public override string ToString()
         {
-            return $"Status: {this.Status.ToString()} Balance Amount: {this.CustomerBalance.ToString()}";
+            return $"Status: {Status.ToString()} Balance Amount: {CustomerBalance.ToString()}";
         }
 
         public void Add(List<CartItem> cartItems)
@@ -35,7 +35,7 @@ namespace VendingMachine.Domain.ValueObjects
             if (ReferenceEquals(cartItems, null))
                 throw new NullReferenceException("Cart Items List can not be null");
 
-            this.CartItems.AddRange(cartItems);
+            CartItems.AddRange(cartItems);
         }
 
         public void AddCartItem(CartItem cartItem)
@@ -43,16 +43,16 @@ namespace VendingMachine.Domain.ValueObjects
             if (ReferenceEquals(cartItem, null))
                 throw new NullReferenceException("Cart Item can not be null");
 
-            this.CartItems.Add(cartItem);
+            CartItems.Add(cartItem);
         }
 
         public Money CalculateCartAmount()
         {
-            if (this.CartItems.Count < 1)
+            if (CartItems.Count < 1)
                 return Money.Empty;
 
             Money cartAmount = new Money();
-            foreach (CartItem item in this.CartItems)
+            foreach (CartItem item in CartItems)
             {
                 cartAmount += item.SellItem.Price * item.Qty;
             }

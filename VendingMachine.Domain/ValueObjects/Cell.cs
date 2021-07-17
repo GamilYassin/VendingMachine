@@ -12,9 +12,9 @@ namespace VendingMachine.Domain.Entities
 
         public Cell(string cellId, SellItem sellItem, int itemQty)
         {
-            this.CellId = CellId;
-            this.SellItem = sellItem;
-            this.SellItemQty = itemQty;
+            CellId = CellId;
+            SellItem = sellItem;
+            SellItemQty = itemQty;
         }
 
 
@@ -24,11 +24,11 @@ namespace VendingMachine.Domain.Entities
                 throw new NullReferenceException();
 
             Cell otherCell = (Cell)obj;
-            if (this.CellId != otherCell.CellId)
+            if (CellId != otherCell.CellId)
                 return false;
-            if (this.SellItem != otherCell.SellItem)
+            if (SellItem != otherCell.SellItem)
                 return false;
-            if (this.SellItemQty != otherCell.SellItemQty)
+            if (SellItemQty != otherCell.SellItemQty)
                 return false;
 
             return true;
@@ -36,13 +36,13 @@ namespace VendingMachine.Domain.Entities
 
         public override int GetHashCode()
         {
-            return this.CellId.GetHashCode() * this.SellItem.GetHashCode() * this.SellItemQty.GetHashCode();
+            return CellId.GetHashCode() * SellItem.GetHashCode() * SellItemQty.GetHashCode();
         }
 
 
         public override string ToString()
         {
-            return $"Cell Id: {this.CellId} Sell Item: {this.SellItem.ToString()} Qty: {this.SellItemQty}";
+            return $"Cell Id: {CellId} Sell Item: {SellItem.ToString()} Qty: {SellItemQty}";
         }
     }
 }

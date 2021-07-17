@@ -34,14 +34,14 @@ namespace VendingMachine.Domain.ValueObjects
 						int dollarcount, int fivedollarcount,
 						int tendollarcount, int twentydollarcount)
 		{
-			this.CentCount = centcount;
-			this.NickelCount = nickelcount;
-			this.DimeCount = dimecount;
-			this.QuarterCount = quartercount;
-			this.DollarCount = dollarcount;
-			this.FiveDollarCount = fivedollarcount;
-			this.TenDollarCount = tendollarcount;
-			this.TwentyDollarCount = twentydollarcount;
+			CentCount = centcount;
+			NickelCount = nickelcount;
+			DimeCount = dimecount;
+			QuarterCount = quartercount;
+			DollarCount = dollarcount;
+			FiveDollarCount = fivedollarcount;
+			TenDollarCount = tendollarcount;
+			TwentyDollarCount = twentydollarcount;
 		}
 
 		#endregion Constructors
@@ -111,10 +111,10 @@ namespace VendingMachine.Domain.ValueObjects
 
 		public Money CalculateAmount()
 		{
-			return new Money(this.CentCount * 0.01m + this.NickelCount * 0.05m
-							+ this.DimeCount * 0.1m + this.QuarterCount * 0.25m
-							+ this.DollarCount * 1m + this.FiveDollarCount * 5m
-							+ this.TenDollarCount * 10m + this.TwentyDollarCount * 20m, Money.DefaultCurrency);
+			return new Money(CentCount * 0.01m + NickelCount * 0.05m
+							+ DimeCount * 0.1m + QuarterCount * 0.25m
+							+ DollarCount * 1m + FiveDollarCount * 5m
+							+ TenDollarCount * 10m + TwentyDollarCount * 20m, Money.DefaultCurrency);
 		}
 
 		public override bool Equals(object obj)

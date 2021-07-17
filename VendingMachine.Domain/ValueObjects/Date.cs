@@ -16,7 +16,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public Date(DateTime dateVal)
         {
-            this.Value = dateVal;
+            Value = dateVal;
         }
 
         #endregion Constructors
@@ -65,42 +65,42 @@ namespace VendingMachine.Domain.ValueObjects
 
         public Date AddYears(int years)
         {
-            return DateFactory(this.Value.Year + years,
-                                this.Value.Month, this.Value.Day);
+            return DateFactory(Value.Year + years,
+                                Value.Month, Value.Day);
         }
 
         public Date AddMonths(int months)
         {
-            return DateFactory(this.Value.Year,
-                                this.Value.Month + months,
-                                this.Value.Day);
+            return DateFactory(Value.Year,
+                                Value.Month + months,
+                                Value.Day);
         }
 
         public Date AddDays(int days)
         {
-            return DateFactory(this.Value.Year,
-                                this.Value.Month,
-                                this.Value.Day + days);
+            return DateFactory(Value.Year,
+                                Value.Month,
+                                Value.Day + days);
         }
 
         public Date SubtractYears(int years)
         {
-            return DateFactory(this.Value.Year - years,
-                                this.Value.Month, this.Value.Day);
+            return DateFactory(Value.Year - years,
+                                Value.Month, Value.Day);
         }
 
         public Date SubtractMonths(int months)
         {
-            return DateFactory(this.Value.Year,
-                                this.Value.Month - months,
-                                this.Value.Day);
+            return DateFactory(Value.Year,
+                                Value.Month - months,
+                                Value.Day);
         }
 
         public Date SubtractDays(int days)
         {
-            return DateFactory(this.Value.Year,
-                                this.Value.Month,
-                                this.Value.Day - days);
+            return DateFactory(Value.Year,
+                                Value.Month,
+                                Value.Day - days);
         }
 
         public override string ToString()
@@ -116,7 +116,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public override int GetHashCode()
         {
-            return this.Value.GetHashCode();
+            return Value.GetHashCode();
         }
 
         public Date Add(Date obj)

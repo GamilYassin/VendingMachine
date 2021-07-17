@@ -14,8 +14,8 @@ namespace VendingMachine.Domain.ValueObjects
 
         public MaintenanceSchedule(int frequency, Date lastMaintDate)
         {
-            this.Frequency = frequency;
-            this.LastMaintDate = lastMaintDate;
+            Frequency = frequency;
+            LastMaintDate = lastMaintDate;
         }
 
         public MaintenanceSchedule() : this(DefaultFrequency, Date.Now)
@@ -44,7 +44,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public Date GetNextMaintDate()
         {
-            return this.LastMaintDate.AddDays(this.Frequency);
+            return LastMaintDate.AddDays(Frequency);
         }
 
         public override string ToString()
@@ -55,13 +55,13 @@ namespace VendingMachine.Domain.ValueObjects
         public override bool Equals(object obj)
         {
             MaintenanceSchedule schedule = (MaintenanceSchedule)obj;
-            return (this.Frequency == schedule.Frequency)
-                && (this.LastMaintDate == schedule.LastMaintDate);
+            return (Frequency == schedule.Frequency)
+                && (LastMaintDate == schedule.LastMaintDate);
         }
 
         public override int GetHashCode()
         {
-            return this.Frequency.GetHashCode() ^ this.LastMaintDate.GetHashCode();
+            return Frequency.GetHashCode() ^ LastMaintDate.GetHashCode();
         }
 
 
