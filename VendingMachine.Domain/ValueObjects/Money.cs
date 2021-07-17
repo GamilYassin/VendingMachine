@@ -125,8 +125,14 @@ namespace VendingMachine.Domain.ValueObjects
         public static Money MoneyFactory(string moneyField)
         {
             string[] values = moneyField.Split(' ');
+            if (values.Length != 2)
+            {
+                return Money.Empty;
+            }
+            decimal.TryParse(values[0], out decimal amount);
+            string currency = values[1];
 
-            return new Money(decimal.Parse(values[0]), values[1]);
+            return new Money(amount, currency);
         }
 
         public Money ConvertToCurrency(decimal rate, string newCurrency)
@@ -155,6 +161,11 @@ namespace VendingMachine.Domain.ValueObjects
             return Amount.ToString("N2") + $" {Currency.ToString()}";
         }
 
+        public Money FromString(string moneyField)
+        {
+            return MoneyFactory(moneyField);
+        }
+
         public Money Add(Money obj)
         {
             return (this + obj);
@@ -167,7 +178,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public string MoneyField()
         {
-            return $"{Amount.ToString()} {Currency}";
+            return $"{Amount} {Currency}";
         }
 
         #endregion Methods
