@@ -3,7 +3,7 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Services.Utils
 {
-    public class Date : IValueObject
+    public class Date 
     {
         #region Fields
 

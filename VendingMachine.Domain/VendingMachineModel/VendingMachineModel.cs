@@ -3,6 +3,7 @@ using VendingMachine.Domain.Base;
 using VendingMachine.Domain.Enums;
 using VendingMachine.Domain.ValueObjects;
 using VendingMachine.Services.Interfaces;
+using VendingMachine.Services.Utils;
 
 namespace VendingMachine.Domain.Models
 {
@@ -10,7 +11,7 @@ namespace VendingMachine.Domain.Models
     {
         #region Properties
 
-        public Location VMLocation { get; set; }
+        public LocationModel VMLocation { get; set; }
         public string Model { get; set; }
         public string Manufacturer { get; set; }
         public MaintenanceSchedule VMMaintenanceSchedule { get; set; }

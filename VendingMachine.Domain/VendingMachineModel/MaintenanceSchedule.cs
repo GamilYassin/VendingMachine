@@ -1,5 +1,6 @@
 ﻿using System;
 using VendingMachine.Services.Interfaces;
+using VendingMachine.Services.Utils;
 
 namespace VendingMachine.Domain.Models
 {
@@ -38,19 +39,11 @@ namespace VendingMachine.Domain.Models
 
         #region Methods
 
-        public static MaintenanceSchedule MaintenanceScheduleFactory(int frequency, Date dateVal)
-        {
-            return new MaintenanceSchedule(frequency, dateVal);
-        }
-
-        public Date GetNextMaintDate()
-        {
-            return LastMaintDate.AddDays(Frequency);
-        }
+       
 
         public override string ToString()
         {
-            return $"Next Maintenance Date: {GetNextMaintDate().ToString()}";
+            return $"Last Maintenance Date {LastMaintDate}";
         }
 
         public override bool Equals(object obj)

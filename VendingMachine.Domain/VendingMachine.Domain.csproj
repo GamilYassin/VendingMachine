@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\EntityBase.cs" />
+    <Compile Include="Business\MaintScheduleBusiness.cs" />
     <Compile Include="Business\SellItemBuisnessLogic.cs" />
     <Compile Include="ValueObjects\Cell.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -61,10 +62,9 @@
     <Compile Include="Exceptions\NotSameCurrencyException.cs" />
     <Compile Include="Exceptions\NotSameSellItemException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObjects\Balance.cs" />
     <Compile Include="ValueObjects\CartItem.cs" />
     <Compile Include="Models\CustomerSessionModel.cs" />
-    <Compile Include="VendingMachineModel\Location.cs" />
+    <Compile Include="VendingMachineModel\LocationModel.cs" />
     <Compile Include="VendingMachineModel\MaintenanceSchedule.cs" />
     <Compile Include="Models\SellItemModel.cs" />
   </ItemGroup>
