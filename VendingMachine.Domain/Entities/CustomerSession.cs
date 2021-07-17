@@ -8,20 +8,20 @@ namespace VendingMachine.Domain.ValueObjects
     public class CustomerSession : EntityBase
     {
         public Balance CustomerBalance { get; set; }
-        public CustomerSessionStatus Status { get; set; }
+        public CustomerSessionStatusEnum Status { get; set; }
         public List<CartItem> CartItems { get; }
 
         public CustomerSession() : this(Balance.Empty)
         {
         }
 
-        public CustomerSession(Balance custBalance, CustomerSessionStatus custStatus)
+        public CustomerSession(Balance custBalance, CustomerSessionStatusEnum custStatus)
         {
             CartItems = new List<CartItem>();
             Status = custStatus;
         }
 
-        public CustomerSession(Balance custBalance) : this(custBalance, CustomerSessionStatus.Active)
+        public CustomerSession(Balance custBalance) : this(custBalance, CustomerSessionStatusEnum.Active)
         {
         }
 

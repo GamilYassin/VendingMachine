@@ -11,7 +11,7 @@ namespace VendingMachine.Domain.ValueObjects
         {
         }
 
-        public SellItem(string name, Money price, string barCode, SellItemType itemType, int grandTotal, Money grandAmount)
+        public SellItem(string name, Money price, string barCode, SellItemTypeEnum itemType, int grandTotal, Money grandAmount)
         {
             Name = name;
             Price = price;
@@ -21,7 +21,7 @@ namespace VendingMachine.Domain.ValueObjects
             GrandSellAmount = grandAmount;
         }
 
-        public SellItem(string name) : this(name, new Money(), string.Empty, SellItemType.Food, 0, new Money())
+        public SellItem(string name) : this(name, new Money(), string.Empty, SellItemTypeEnum.Food, 0, new Money())
         {
         }
 
@@ -32,7 +32,7 @@ namespace VendingMachine.Domain.ValueObjects
         public string Name { get; set; }
         public Money Price { get; set; }
         public string Barcode { get; set; }
-        public SellItemType ItemType { get; set; }
+        public SellItemTypeEnum ItemType { get; set; }
         public int GrandTotal { get; set; }
         public Money GrandSellAmount { get; set; }
 
