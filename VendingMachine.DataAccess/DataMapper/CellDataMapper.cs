@@ -8,10 +8,11 @@ namespace VendingMachine.DataAccess.DataMapper
     {
         public CellTableRecord MapFromDomain(Cell domainModel)
         {
-            return new CellTableRecord() { 
-            VendingMachineId = domainModel.,
-            CellId = domainModel.
-            };
+            return new CellTableRecord();
+            //{ 
+            //VendingMachineId = domainModel.,
+            //CellId = domainModel.
+            //};
         }
 
         public void MapFromTable(ref Cell domainModel, CellTableRecord databaseModel)
