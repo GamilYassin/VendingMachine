@@ -10,18 +10,20 @@ namespace VendingMachine.Services.Interfaces
 
         #endregion Properties
 
-        #region Methods
+        #region Methods        
 
-        int Delete(T model);
-
-        List<T> FindAll(string tableName);
+        List<T> FindAll();
 
         T FindById(int id);
 
         int Insert(T model);
+        int Insert(IEnumerable<T> models);
 
         int Update(T model);
+        int Update(IEnumerable<T> models);
 
+        int Delete(T model);
+        int Delete(IEnumerable<T> models);
         #endregion Methods
     }
 }

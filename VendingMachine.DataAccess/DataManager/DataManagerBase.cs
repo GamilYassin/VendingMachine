@@ -14,9 +14,12 @@ namespace VendingMachine.DataAccess.DataManager
         }
 
         public abstract int Delete(T model);
-        public abstract List<T> FindAll(string tableName);
+        public abstract List<T> FindAll();
         public abstract T FindById(int id);
         public abstract int Insert(T model);
         public abstract int Update(T model);
+        public abstract int Insert(IEnumerable<T> models);
+        public abstract int Update(IEnumerable<T> models);
+        public abstract int Delete(IEnumerable<T> models);
     }
 }

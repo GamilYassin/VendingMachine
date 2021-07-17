@@ -8,5 +8,6 @@ namespace VendingMachine.Services.Interfaces
 {
    public interface ITable
     {
+        int Id { get; set;  }
     }
 }
