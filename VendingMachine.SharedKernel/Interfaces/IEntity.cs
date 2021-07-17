@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VendingMachine.SharedKernel.Interfaces
+﻿namespace VendingMachine.Services.Interfaces
 {
-	public interface IEntity
-	{
-		#region Properties
+    public interface IEntity
+    {
+        #region Properties
 
-		int Id { get; set; }
+        int Id { get; set; }
 
-		#endregion Properties
-	}
+        #endregion Properties
+    }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VendingMachine.Domain.BaseClasses;
+using VendingMachine.Domain.Base;
 using VendingMachine.Domain.ValueObjects;
-using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.Entities
 {

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClasses\EntityBase.cs" />
+    <Compile Include="Base\EntityBase.cs" />
     <Compile Include="ValueObjects\Cell.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\VendingMachine.cs" />
@@ -62,14 +62,13 @@
     <Compile Include="ValueObjects\MaintenanceSchedule.cs" />
     <Compile Include="ValueObjects\Money.cs" />
     <Compile Include="Entities\SellItem.cs" />
-    <Compile Include="BaseClasses\ValueObjectBase.cs" />
+    <Compile Include="Base\ValueObjectBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj">
+    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.Services.csproj">
       <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
-      <Name>VendingMachine.SharedKernel</Name>
+      <Name>VendingMachine.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

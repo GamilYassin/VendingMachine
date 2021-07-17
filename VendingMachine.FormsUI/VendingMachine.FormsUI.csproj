@@ -85,9 +85,9 @@
       <Project>{2f0d3fd5-ee26-4da2-981d-410f3b76a563}</Project>
       <Name>VendingMachine.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj">
+    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.Services.csproj">
       <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
-      <Name>VendingMachine.SharedKernel</Name>
+      <Name>VendingMachine.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using VendingMachine.Domain.Entities;
 using VendingMachine.Domain.Enums;
 using VendingMachine.Presentation.DataBaseModels;
-using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Presentation.ModelMappers
 {

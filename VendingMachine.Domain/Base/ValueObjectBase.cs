@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Services.Interfaces;
 
-namespace VendingMachine.Domain.BaseClasses
+namespace VendingMachine.Domain.Base
 {
 	public abstract class ValueObjectBase<T> where T : IValueObject
 	{

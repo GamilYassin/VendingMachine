@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using VendingMachine.Domain.Exceptions;
 using VendingMachine.Domain.Enums;
-using VendingMachine.Domain.BaseClasses;
-using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Domain.Base;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.ValueObjects
 {

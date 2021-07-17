@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Domain", "VendingMachine.Domain\VendingMachine.Domain.csproj", "{41B8E785-5EF9-49A3-BEAD-FB971AD93039}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.SharedKernel", "VendingMachine.SharedKernel\VendingMachine.SharedKernel.csproj", "{BC66D220-9518-44F9-B608-3048B17E116E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Services", "VendingMachine.SharedKernel\VendingMachine.Services.csproj", "{BC66D220-9518-44F9-B608-3048B17E116E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.FormsUI", "VendingMachine.FormsUI\VendingMachine.FormsUI.csproj", "{E0D4FCB7-3503-449A-A564-12459ED16C8C}"
 EndProject

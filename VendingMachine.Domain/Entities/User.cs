@@ -1,5 +1,5 @@
 using VendingMachine.Domain.Enums;
-using VendingMachine.Domain.BaseClasses;
+using VendingMachine.Domain.Base;
 
 namespace VendingMachine.Domain.Entities
 {

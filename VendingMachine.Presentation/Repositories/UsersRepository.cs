@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Services.Interfaces;
 using VendingMachine.Domain.Entities;
 using VendingMachine.Presentation.Context;
 using VendingMachine.Presentation.DataBaseModels;

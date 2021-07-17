@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VendingMachine.Domain.BaseClasses;
-using VendingMachine.SharedKernel.Interfaces;
+using VendingMachine.Domain.Base;
+using VendingMachine.Services.Interfaces;
 using VendingMachine.Domain.Exceptions;
 
 namespace VendingMachine.Domain.ValueObjects
