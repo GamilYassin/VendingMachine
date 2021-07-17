@@ -16,9 +16,9 @@ namespace VendingMachine.Domain.Business
             return new MaintenanceSchedule(frequency, dateVal);
         }
 
-        public Date GetNextMaintDate()
-        {
-            return LastMaintDate.AddDays(Frequency);
-        }
+        //public Date GetNextMaintDate()
+        //{
+        //    return LastMaintDate.AddDays(Frequency);
+        //}
     }
 }
