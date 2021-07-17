@@ -2,7 +2,7 @@
 
 namespace VendingMachine.Services.Interfaces
 {
-    public interface IDataManager<T> where T : IEntity, new()
+    public interface IDataManager<T> where T : ITable, new()
     {
         #region Properties
 
