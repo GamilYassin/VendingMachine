@@ -50,20 +50,20 @@
     <Compile Include="Base\EntityBase.cs" />
     <Compile Include="Business\MaintScheduleBusiness.cs" />
     <Compile Include="Business\SellItemBuisnessLogic.cs" />
-    <Compile Include="ValueObjects\Cell.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="VendingMachineModel\CellModel.cs" />
+    <Compile Include="UsersSession\UserModel.cs" />
     <Compile Include="VendingMachineModel\VendingMachineModel.cs" />
     <Compile Include="Enums\Currency.cs" />
-    <Compile Include="Enums\CustomerSessionStatus.cs" />
+    <Compile Include="UsersSession\CustomerSessionStatusEnum.cs" />
     <Compile Include="Enums\SellItemType.cs" />
-    <Compile Include="Enums\UserPrivilege.cs" />
-    <Compile Include="Enums\VendingMachineStateEnum.cs" />
+    <Compile Include="UsersSession\UserPrivilege.cs" />
+    <Compile Include="VendingMachineModel\VendingMachineStateEnum.cs" />
     <Compile Include="Exceptions\NegativeMoneyAmountException.cs" />
     <Compile Include="Exceptions\NotSameCurrencyException.cs" />
     <Compile Include="Exceptions\NotSameSellItemException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObjects\CartItem.cs" />
-    <Compile Include="Models\CustomerSessionModel.cs" />
+    <Compile Include="UsersSession\CartItem.cs" />
+    <Compile Include="UsersSession\CustomerSessionModel.cs" />
     <Compile Include="VendingMachineModel\LocationModel.cs" />
     <Compile Include="VendingMachineModel\MaintenanceSchedule.cs" />
     <Compile Include="Models\SellItemModel.cs" />
@@ -76,6 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ValueObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

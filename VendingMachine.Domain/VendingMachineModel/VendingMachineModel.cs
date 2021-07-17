@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using VendingMachine.Domain.Base;
-using VendingMachine.Domain.Enums;
-using VendingMachine.Domain.ValueObjects;
 using VendingMachine.Services.Interfaces;
 using VendingMachine.Services.Utils;
 
@@ -18,7 +16,7 @@ namespace VendingMachine.Domain.Models
         public Money GrandBalanceAmount { get; set; }
         public Balance InsideBalance { get; set; }
         public Date StartDate { get; set; }
-        public IList<Cell> Cells { get; set; }
+        public IList<CellModel> Cells { get; set; }
         public VendingMachineStateEnum State { get; set; }
 
         public override string ToString()

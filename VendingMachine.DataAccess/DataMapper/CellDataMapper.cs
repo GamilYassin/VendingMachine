@@ -4,9 +4,9 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.DataMapper
 {
-    public class CellDataMapper : IModelMapper<Cell, CellTableRecord>
+    public class CellDataMapper : IModelMapper<CellModel, CellTableRecord>
     {
-        public CellTableRecord MapFromDomain(Cell domainModel)
+        public CellTableRecord MapFromDomain(CellModel domainModel)
         {
             return new CellTableRecord();
             //{ 
@@ -15,7 +15,7 @@ namespace VendingMachine.DataAccess.DataMapper
             //};
         }
 
-        public void MapFromTable(ref Cell domainModel, CellTableRecord databaseModel)
+        public void MapFromTable(ref CellModel domainModel, CellTableRecord databaseModel)
         {
             throw new System.NotImplementedException();
         }

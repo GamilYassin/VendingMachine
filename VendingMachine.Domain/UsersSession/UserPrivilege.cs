@@ -2,7 +2,7 @@
 
 using VendingMachine.Services.EnumerationBase;
 
-namespace VendingMachine.Domain.Enums
+namespace VendingMachine.Domain.Models
 {
 
     public class UserPrivilegeEnum: Enumeration

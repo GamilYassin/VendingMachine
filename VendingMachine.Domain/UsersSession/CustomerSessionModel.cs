@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using VendingMachine.Domain.Base;
 using VendingMachine.Domain.Enums;
 using VendingMachine.Services.Interfaces;
+using VendingMachine.Services.Utils;
 
-namespace VendingMachine.Domain.ValueObjects
+namespace VendingMachine.Domain.Models
+
 {
     public class CustomerSessionModel : EntityBase, IAggregateRoot
     {

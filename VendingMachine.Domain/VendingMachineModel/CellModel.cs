@@ -4,17 +4,15 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.Models
 {
-    public class Cell : IValueObject
+    public class CellModel 
     {
         public string CellId { get; }
         public SellItemModel SellItem { get; }
         public int SellItemQty { get; }
-        public int VendingMachineId { get; set; }
 
-        public Cell(int vmId, string cellId, SellItemModel sellItem, int itemQty)
+        public CellModel(string cellId, SellItemModel sellItem, int itemQty)
         {
-            VendingMachineId = vmId;
-            CellId = CellId;
+            CellId = cellId;
             SellItem = sellItem;
             SellItemQty = itemQty;
         }
@@ -25,7 +23,7 @@ namespace VendingMachine.Domain.Models
             if (ReferenceEquals(obj, null))
                 throw new NullReferenceException();
 
-            Cell otherCell = (Cell)obj;
+            CellModel otherCell = (CellModel)obj;
             if (CellId != otherCell.CellId)
                 return false;
             if (SellItem != otherCell.SellItem)

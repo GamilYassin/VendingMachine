@@ -1,7 +1,6 @@
-﻿CREATE TABLE [dbo].[InsideBalanceTable]
+﻿CREATE TABLE [dbo].[BalanceTable]
 (
-	[Id]                INT IDENTITY (1, 1) NOT NULL,
-    [VendingMachineId]  INT NOT NULL,
+    [Id]                INT NOT NULL PRIMARY KEY,
     [CentCount]         INT NOT NULL,
     [NickelCount]       INT NOT NULL,
     [DimeCount]         INT NOT NULL,
