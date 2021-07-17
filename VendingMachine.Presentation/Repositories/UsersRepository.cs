@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using VendingMachine.Domain.Entities;
+using VendingMachine.Domain.Enums;
 using VendingMachine.Presentation.Context;
 using VendingMachine.Presentation.DataBaseModels;
 using VendingMachine.Presentation.ModelMappers;
+using VendingMachine.Services.EnumerationBase;
 using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Presentation.Repositories
@@ -47,20 +49,22 @@ namespace VendingMachine.Presentation.Repositories
         {
             using (VendingMachineContext dbContext = VendingMachineContext.InstanceFactory())
             {
-                dbContext.SaveChanges();
+                //dbContext.SaveChanges();
             }
         }
 
-        public UserPrivilege GetUserPrivilege(string userName, string userPass)
+        public UserPrivilegeEnum GetUserPrivilege(string userName, string userPass)
         {
-            UserPrivilege privilege;
+            UserPrivilegeEnum privilege;
 
             using (VendingMachineContext dbContext = VendingMachineContext.InstanceFactory())
             {
                 string userPrivlege = dbContext.UserRecords.Where(x => string.Compare(x.UserName, userName, true) == 0 &&
                                                                     string.Compare(x.UserPassword, userPass, true) == 0)
                                                         .Select(x => x.Privilege).First();
-                Enum.TryParse(userPrivlege, out privilege);
+                //Enumumeration.Parse(userPrivlege, out privilege);
+
+                privilege = Enumeration.FromDisplayName<UserPrivilegeEnum>(userPrivlege);
             }
 
             return privilege;
@@ -112,6 +116,41 @@ namespace VendingMachine.Presentation.Repositories
         public void DeleteUser(User user)
         {
             DeleteUser(user.Id);
+        }
+
+        public IEnumerable<User> FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int RecordsCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AddModel(User model, bool commit = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(User model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int UpdateModel(User model, bool commit = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int DeleteModel(User model, bool commit = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int DeleteModelById(int id, bool commit = false)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Methods

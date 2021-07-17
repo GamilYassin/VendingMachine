@@ -18,7 +18,7 @@ namespace VendingMachine.Services.EnumerationBase
         public string DisplayName => _displayName;
         public int Value => _value;
 
-        private static T Parse<T, K>(K value, string description, Func<T, bool> predicate) where T : Enumeration, new()
+        private static T Parse<T, K>(K value, string description, Func<T, bool> predicate) where T : Enumeration
         {
             T matchingItem = GetAll<T>().FirstOrDefault(predicate);
 
@@ -36,13 +36,13 @@ namespace VendingMachine.Services.EnumerationBase
             return Math.Abs(firstValue.Value - secondValue.Value);
         }
 
-        public static T FromDisplayName<T>(string displayName) where T : Enumeration, new()
+        public static T FromDisplayName<T>(string displayName) where T : Enumeration
         {
             T matchingItem = Parse<T, string>(displayName, "display name", item => item.DisplayName == displayName);
             return matchingItem;
         }
 
-        public static T FromValue<T>(int value) where T : Enumeration, new()
+        public static T FromValue<T>(int value) where T : Enumeration
         {
             return Parse<T, int>(value, "value", item => item.Value == value);
         }
