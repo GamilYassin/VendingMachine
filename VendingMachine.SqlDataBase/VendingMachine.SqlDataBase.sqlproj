@@ -63,7 +63,6 @@
     <Build Include="Tables\UserTable.sql" />
     <Build Include="Tables\SellItemTable.sql" />
     <Build Include="Tables\LocationTable.sql" />
-    <Build Include="Tables\BalanceTable.sql" />
     <Build Include="Tables\CellTable.sql" />
     <Build Include="Tables\CustomerSessionTable.sql" />
     <Build Include="Tables\CartItemTable.sql" />

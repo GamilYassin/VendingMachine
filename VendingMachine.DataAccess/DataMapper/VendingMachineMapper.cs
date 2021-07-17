@@ -21,6 +21,7 @@ namespace VendingMachine.DataAccess.DataMapper
                 LastMaintDate = domainModel.VMMaintenanceSchedule.LastMaintDate.Value,
                 GrandBalance = domainModel.GrandBalanceAmount.ToString(),
                 State = domainModel.State.DisplayName,
+                
             };
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace VendingMachine.Services.Utils
 {
@@ -35,18 +36,24 @@ namespace VendingMachine.Services.Utils
             TwentyDollarCount = twentydollarcount;
         }
 
+        public Balance(): this(0,0,0,0,0,0,0,0)
+        {
+
+        }
         #endregion Constructors
 
         #region Properties
 
-        public int CentCount { get; }
-        public int NickelCount { get; }
-        public int DimeCount { get; }
-        public int QuarterCount { get; }
-        public int DollarCount { get; }
-        public int FiveDollarCount { get; }
-        public int TenDollarCount { get; }
-        public int TwentyDollarCount { get; }
+        public int CentCount { get; set; }
+        public int NickelCount { get; set; }
+        public int DimeCount { get; set; }
+        public int QuarterCount { get; set; }
+        public int DollarCount { get; set; }
+        public int FiveDollarCount { get; set; }
+        public int TenDollarCount { get; set; }
+        public int TwentyDollarCount { get; set; }
+
+        private static char delimiter = '|';
 
         #endregion Properties
 
@@ -134,6 +141,56 @@ namespace VendingMachine.Services.Utils
         public Balance Subtract(Balance obj)
         {
             return (this - obj);
+        }
+
+        public string Encode()
+        {
+            StringBuilder result = new StringBuilder();
+            result.Append(CentCount);
+            result.Append(delimiter);
+            result.Append(NickelCount);
+            result.Append(delimiter);
+            result.Append(DimeCount);
+            result.Append(delimiter);
+            result.Append(QuarterCount);
+            result.Append(delimiter);
+            result.Append(DollarCount);
+            result.Append(delimiter);
+            result.Append(FiveDollarCount);
+            result.Append(delimiter);
+            result.Append(TenDollarCount);
+            result.Append(delimiter);
+            result.Append(TwentyDollarCount);
+
+            return result.ToString();
+        }
+
+        public Balance Decode(string balanceEncode)
+        {
+            Balance balanceObj = Balance.Empty;
+            string[] strValues = balanceEncode.Split(delimiter);
+
+            if (strValues.Length == 8)
+            {
+                int tmp = 0;
+                Int32.TryParse(strValues[0], out tmp);
+                balanceObj.CentCount = tmp;
+                Int32.TryParse(strValues[1], out tmp);
+                balanceObj.NickelCount = tmp;
+                Int32.TryParse(strValues[2], out tmp);
+                balanceObj.DimeCount = tmp;
+                Int32.TryParse(strValues[3], out tmp);
+                balanceObj.QuarterCount = tmp;
+                Int32.TryParse(strValues[4], out tmp);
+                balanceObj.DollarCount = tmp;
+                Int32.TryParse(strValues[5], out tmp);
+                balanceObj.FiveDollarCount = tmp;
+                Int32.TryParse(strValues[6], out tmp);
+                balanceObj.TenDollarCount = tmp;
+                Int32.TryParse(strValues[7], out tmp);
+                balanceObj.TwentyDollarCount = tmp;
+            }
+            return balanceObj;
         }
 
         #endregion Methods
