@@ -1,4 +1,6 @@
-﻿using VendingMachine.DataAccess.Tables;
+﻿using System.Reflection;
+using System.Runtime.InteropServices.ComTypes;
+using VendingMachine.DataAccess.Tables;
 using VendingMachine.Domain.Entities;
 using VendingMachine.Domain.Enums;
 using VendingMachine.Domain.ValueObjects;
@@ -9,19 +11,6 @@ namespace VendingMachine.DataAccess.DataMapper
 {
     public class VendingMachineMapper : IModelMapper<VendingMachineModel, VendingMachineTableRecord>
     {
-        public VendingMachineModel MapFromTable(VendingMachineTableRecord databaseModel)
-        {
-            return new VendingMachineModel()
-            {
-                Id = databaseModel.Id,
-                Model = databaseModel.Model,
-                Manufacturer = databaseModel.Manufacturer,
-                StartDate = new Date(databaseModel.StartDate),
-                VMMaintenanceSchedule = new MaintenanceSchedule(databaseModel.Frequency, new Date(databaseModel.StartDate)),
-                GrandBalanceAmount = Money.MoneyFactory(databaseModel.GrandBalance),
-                State = Enumeration.FromDisplayName<VendingMachineStateEnum>(databaseModel.State),
-            };
-        }
 
         public VendingMachineTableRecord MapFromDomain(VendingMachineModel domainModel)
         {
@@ -36,6 +25,17 @@ namespace VendingMachine.DataAccess.DataMapper
                 GrandBalance = domainModel.GrandBalanceAmount.ToString(),
                 State = domainModel.State.DisplayName,
             };
+        }
+
+        public void MapFromTable(ref VendingMachineModel domainModel, VendingMachineTableRecord databaseModel)
+{
+            domainModel.Id = databaseModel.Id;
+            domainModel.Model = databaseModel.Model;
+            domainModel.Manufacturer = databaseModel.Manufacturer;
+            domainModel.StartDate = new Date(databaseModel.StartDate);
+            domainModel.VMMaintenanceSchedule = new MaintenanceSchedule(databaseModel.Frequency, new Date(databaseModel.StartDate));
+            domainModel.GrandBalanceAmount = Money.MoneyFactory(databaseModel.GrandBalance);
+            domainModel.State = Enumeration.FromDisplayName<VendingMachineStateEnum>(databaseModel.State);
         }
     }
 }

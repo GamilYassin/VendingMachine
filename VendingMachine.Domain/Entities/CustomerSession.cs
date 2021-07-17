@@ -13,6 +13,7 @@ namespace VendingMachine.Domain.ValueObjects
 
         public CustomerSession() : this(Balance.Empty)
         {
+
         }
 
         public CustomerSession(Balance custBalance, CustomerSessionStatusEnum custStatus)

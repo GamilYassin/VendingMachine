@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMapper\CellDataMapper.cs" />
     <Compile Include="DataManager\DataManagerBase.cs" />
     <Compile Include="DataManager\SqlDataManager.cs" />
     <Compile Include="DataMapper\LocationMapper.cs" />

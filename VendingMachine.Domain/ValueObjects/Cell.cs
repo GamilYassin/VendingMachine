@@ -9,9 +9,11 @@ namespace VendingMachine.Domain.Entities
         public string CellId { get; }
         public SellItem SellItem { get; }
         public int SellItemQty { get; }
+        public int VendingMachineId { get; set; }
 
-        public Cell(string cellId, SellItem sellItem, int itemQty)
+        public Cell(int vmId, string cellId, SellItem sellItem, int itemQty)
         {
+            VendingMachineId = vmId;
             CellId = CellId;
             SellItem = sellItem;
             SellItemQty = itemQty;

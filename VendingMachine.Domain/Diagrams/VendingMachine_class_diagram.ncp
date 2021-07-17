@@ -469,7 +469,7 @@
       <Entity type="Class">
         <Name>MaintenanceSchedule</Name>
         <Access>Public</Access>
-        <Location left="743" top="181" />
+        <Location left="783" top="181" />
         <Size width="202" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public Int32 DefaultFrequency</Member>
@@ -516,7 +516,7 @@
       <Entity type="Class">
         <Name>SellItem</Name>
         <Access>Public</Access>
-        <Location left="721" top="449" />
+        <Location left="687" top="488" />
         <Size width="226" height="179" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public String Name { get; set; }</Member>
@@ -573,8 +573,8 @@
           <Y>572</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>696</X>
-          <Y>533</Y>
+          <X>662</X>
+          <Y>572</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>

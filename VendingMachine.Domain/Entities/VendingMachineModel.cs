@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using VendingMachine.Domain.Base;
 using VendingMachine.Domain.Enums;
 using VendingMachine.Domain.ValueObjects;
@@ -15,7 +14,7 @@ namespace VendingMachine.Domain.Entities
         public string Model { get; set; }
         public string Manufacturer { get; set; }
         public MaintenanceSchedule VMMaintenanceSchedule { get; set; }
-        public Money GrandBalanceAmount { get; set; }        
+        public Money GrandBalanceAmount { get; set; }
         public Balance InsideBalance { get; set; }
         public Date StartDate { get; set; }
         public IList<Cell> Cells { get; set; }
