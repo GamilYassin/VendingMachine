@@ -1,10 +1,8 @@
 ﻿using System;
-using VendingMachine.Domain.ValueObjects;
-using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.Models
 {
-    public class CellModel 
+    public class CellModel
     {
         public string CellId { get; }
         public SellItemModel SellItem { get; }

@@ -1,6 +1,6 @@
 ﻿using VendingMachine.Services.EnumerationBase;
 
-namespace VendingMachine.Domain.Enums
+namespace VendingMachine.Services.Utils
 {
     public class CurrencyEnum : Enumeration
     {

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using VendingMachine.Domain.Base;
-using VendingMachine.Domain.Enums;
 using VendingMachine.Services.Interfaces;
 using VendingMachine.Services.Utils;
 

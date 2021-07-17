@@ -1,11 +1,8 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices.ComTypes;
-using VendingMachine.DataAccess.Tables;
+﻿using VendingMachine.DataAccess.Tables;
 using VendingMachine.Domain.Models;
-using VendingMachine.Domain.Enums;
-using VendingMachine.Domain.ValueObjects;
 using VendingMachine.Services.EnumerationBase;
 using VendingMachine.Services.Interfaces;
+using VendingMachine.Services.Utils;
 
 namespace VendingMachine.DataAccess.DataMapper
 {
@@ -28,7 +25,7 @@ namespace VendingMachine.DataAccess.DataMapper
         }
 
         public void MapFromTable(ref VendingMachineModel domainModel, VendingMachineTableRecord databaseModel)
-{
+        {
             domainModel.Id = databaseModel.Id;
             domainModel.Model = databaseModel.Model;
             domainModel.Manufacturer = databaseModel.Manufacturer;

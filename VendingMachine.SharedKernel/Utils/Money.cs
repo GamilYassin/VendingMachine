@@ -1,4 +1,5 @@
 ﻿using System;
+using VendingMachine.Domain.Exceptions;
 
 namespace VendingMachine.Services.Utils
 {

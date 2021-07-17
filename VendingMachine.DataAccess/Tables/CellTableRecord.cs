@@ -8,13 +8,14 @@ namespace VendingMachine.DataAccess.Tables
         public string CellId { get; set; }
         public int ItemId { get; set; }
         public int ItemQty { get; set; }
+        public int Id { get; set; }
 
-        public CellTableRecord() : this( 0, string.Empty, 0, 0)
+        public CellTableRecord() : this(0, string.Empty, 0, 0)
         {
 
         }
 
-        public CellTableRecord( int vmId, string cellId, int itemId, int itemQty)
+        public CellTableRecord(int vmId, string cellId, int itemId, int itemQty)
         {
             VendingMachineId = vmId;
             CellId = cellId;

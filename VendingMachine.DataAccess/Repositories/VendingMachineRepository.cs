@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using VendingMachine.Services.Interfaces;
-using VendingMachine.Domain;
-using VendingMachine.DataAccess.UnitOfWork;
 using VendingMachine.DataAccess.Tables;
+using VendingMachine.DataAccess.UnitOfWork;
 using VendingMachine.Domain.Models;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.Repositories
 {
@@ -20,14 +19,14 @@ namespace VendingMachine.DataAccess.Repositories
             vmUnitofWork = new SqlUnitofWorkBase<VendingMachineTableRecord>();
             locationUnitofWork = new SqlUnitofWorkBase<LocationTableRecord>();
             balanceUnitofWork = new SqlUnitofWorkBase<InsideBalanceTableRecord>();
-            cellUnitofWork=new SqlUnitofWorkBase<CellTableRecord>();
+            cellUnitofWork = new SqlUnitofWorkBase<CellTableRecord>();
         }
 
 
         public int AddModel(VendingMachineModel model, bool commit = false)
         {
-            vmUnitofWork.AddModel(model, commit);
-
+            //vmUnitofWork.AddModel(model, commit);
+            throw new NotImplementedException();
         }
 
         public void Commit()
