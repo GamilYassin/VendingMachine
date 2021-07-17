@@ -7,8 +7,8 @@ namespace VendingMachine.Services.EnumerationBase
 {
     public class Enumeration : IComparable
     {
-        private readonly string _displayName;
-        private readonly int _value;
+        protected readonly string _displayName;
+        protected readonly int _value;
 
         public Enumeration(int value, string name)
         {
