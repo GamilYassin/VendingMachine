@@ -11,25 +11,27 @@ namespace VendingMachine.DataAccess.SqlOperations
     {
         #region Constructors
 
-        public SqlOperation(string tableName, Query sql, IEnumerable<KeyValuePair<string, object>> values, VendingMachineTableRecord vmRecord, SqlOperationTypeEnum type)
+        public SqlOperation(string tableName, IEnumerable<KeyValuePair<string, object>> values, SqlOperationTypeEnum type)
         {
             OperationType = type;
             TableName = tableName;
-            SqlQuery = sql;
-            Parameters = new DynamicParameters(values);
-            Param = new DynamicParameters(vmRecord);
-            ColumnNames = values.Select(x => x.Key).ToArray<string>();
+            Parameters = values;
+            //SqlQuery = sql;
+            //Parameters = new DynamicParameters(values);
+            //Param = new DynamicParameters(vmRecord);
+            //ColumnNames = values.Select(x => x.Key).ToArray<string>();
         }
 
         #endregion Constructors
 
         #region Properties
 
-        public IEnumerable<string> ColumnNames { get; set; }
+        //public IEnumerable<string> ColumnNames { get; set; }
         public SqlOperationTypeEnum OperationType { get; set; }
-        public DynamicParameters Param { get; set; }
-        public DynamicParameters Parameters { get; set; }
-        public Query SqlQuery { get; set; }
+        public IEnumerable<KeyValuePair<string, object>> Parameters { get; set; }
+        //public DynamicParameters Param { get; set; }
+        //public DynamicParameters Parameters { get; set; }
+        //public Query SqlQuery { get; set; }
         public string TableName { get; set; }
 
         #endregion Properties

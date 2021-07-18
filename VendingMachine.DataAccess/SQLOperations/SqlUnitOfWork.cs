@@ -37,24 +37,26 @@ namespace VendingMachine.DataAccess.SQLOperations
             {
                 if (sqlOperations.Count > 0)
                 {
-                    SqlServerCompiler compiler = new SqlServerCompiler();
+                    //SqlServerCompiler compiler = new SqlServerCompiler();
                     using (SqlConnection connection = new SqlConnection(connectionString))
-                    using (QueryFactory db = new QueryFactory(connection, compiler))
+                    using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
                     {
                         foreach (SqlOperation operation in sqlOperations)
                         {
                             if (operation.OperationType == SqlOperationTypeEnum.Insert)
                             {
-                                db.Query(operation.TableName)
-                                  .Insert(operation.ColumnNames, operation.SqlQuery);
+                                //db.Query(operation.TableName)
+                                //  .Insert(operation.ColumnNames, operation.SqlQuery);
+
+                                db.Query(operation.TableName).Insert(operation.Parameters);
                             }
                             else if (operation.OperationType == SqlOperationTypeEnum.Update)
                             {
-                                connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
+                                //connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
                             }
                             else if (operation.OperationType == SqlOperationTypeEnum.Delete)
                             {
-                                connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
+                                //connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
                             }
                             //connection.Execute(compiler.Compile(operation.SqlQuery).Sql, operation.Param, commandType: System.Data.CommandType.Text);
                         }

@@ -12,9 +12,113 @@ namespace VendingMachine.DataAccess.DataManager
 {
     public class SqlDataManager<T> : DataManagerBase<T> where T : ITable
     {
+        #region Constructors
+
         public SqlDataManager() : base()
         {
+        }
 
+        #endregion Constructors
+
+        #region Methods
+
+        public override bool Contains(T model)
+        {
+            return Contains(model.Id);
+        }
+
+        public override bool Contains(int id)
+        {
+            if (FindById(id) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override int Delete(T model)
+        {
+            try
+            {
+                string tableName = DataBaseServices.GetTableName(model);
+                int id = model.Id;
+                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
+                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+                {
+                    return db.Query(tableName)
+                             .Where("Id", id)
+                             .Delete();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "SQL Data Manager Delete error", model);
+                return 0;
+            }
+        }
+
+        public override int Delete(IEnumerable<T> models)
+        {
+            try
+            {
+                int affected = 0;
+                string tableName = DataBaseServices.GetTableName(default(T));
+                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
+                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+                {
+                    foreach (T model in models)
+                    {
+                        int id = model.Id;
+                        affected += db.Query(tableName)
+                                 .Where("Id", id)
+                                 .Delete();
+                    }
+                    return affected;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "SQL Data Manager Delete error");
+                return 0;
+            }
+        }
+
+        public override List<T> FindAll()
+        {
+            try
+            {
+                string tableName = DataBaseServices.GetTableName(default(T));
+                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
+                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+                {
+                    return db.Query(tableName)
+                             .Get<T>()
+                             .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "SQL Data Manager Find All error");
+                return null;
+            }
+        }
+
+        public override T FindById(int id)
+        {
+            try
+            {
+                string tableName = DataBaseServices.GetTableName(default(T));
+                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
+                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+                {
+                    return db.Query(tableName).Where("Id", id).First<T>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "SQL Data Manager FindById error", id);
+                return default;
+            }
         }
 
         public override int Insert(T model)
@@ -68,7 +172,7 @@ namespace VendingMachine.DataAccess.DataManager
             }
         }
 
-        public override List<T> FindAll()
+        public override int RecordsCount()
         {
             try
             {
@@ -77,33 +181,13 @@ namespace VendingMachine.DataAccess.DataManager
                 using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
                 {
                     return db.Query(tableName)
-                             .Get<T>()
-                             .ToList();
+                             .Count<int>();
                 }
             }
             catch (Exception ex)
             {
                 Log.Error(ex, "SQL Data Manager Find All error");
-                return null;
-            }
-        }
-
-
-        public override T FindById(int id)
-        {
-            try
-            {
-                string tableName = DataBaseServices.GetTableName(default(T));
-                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
-                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
-                {
-                    return db.Query(tableName).Where("Id", id).First<T>();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "SQL Data Manager FindById error", id);
-                return default;
+                return 0;
             }
         }
 
@@ -161,84 +245,6 @@ namespace VendingMachine.DataAccess.DataManager
             }
         }
 
-        public override int Delete(T model)
-        {
-            try
-            {
-                string tableName = DataBaseServices.GetTableName(model);
-                int id = model.Id;
-                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
-                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
-                {
-                    return db.Query(tableName)
-                             .Where("Id", id)
-                             .Delete();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "SQL Data Manager Delete error", model);
-                return 0;
-            }
-        }
-
-        public override int Delete(IEnumerable<T> models)
-        {
-            try
-            {
-                int affected = 0;
-                string tableName = DataBaseServices.GetTableName(default(T));
-                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
-                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
-                {
-                    foreach (T model in models)
-                    {
-                        int id = model.Id;
-                        affected += db.Query(tableName)
-                                 .Where("Id", id)
-                                 .Delete();
-                    }
-                    return affected;
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "SQL Data Manager Delete error");
-                return 0;
-            }
-        }
-
-        public override bool Contains(T model)
-        {
-            return Contains(model.Id);
-        }
-
-        public override bool Contains(int id)
-        {
-            if (FindById(id) != null)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public override int RecordsCount()
-        {
-            try
-            {
-                string tableName = DataBaseServices.GetTableName(default(T));
-                using (SqlConnection connection = new SqlConnection(ConnectionIdentifier))
-                using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
-                {
-                    return db.Query(tableName)
-                             .Count<int>();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "SQL Data Manager Find All error");
-                return 0;
-            }
-        }
+        #endregion Methods
     }
 }

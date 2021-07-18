@@ -1,6 +1,12 @@
-﻿using SqlKata;
+﻿using Dapper;
+using Serilog;
+using SqlKata;
+using SqlKata.Compilers;
+using SqlKata.Execution;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
 using VendingMachine.DataAccess.DataMapper;
 using VendingMachine.DataAccess.SqlOperations;
 using VendingMachine.DataAccess.SQLOperations;
@@ -14,10 +20,6 @@ namespace VendingMachine.DataAccess.Repositories
 {
     public class VendingMachineRepository
     {
-        //private SqlUnitofWorkBase<VendingMachineTableRecord> vmUnitofWork;
-        //private SqlUnitofWorkBase<LocationTableRecord> locationUnitofWork;
-        //private SqlUnitofWorkBase<CellTableRecord> cellUnitofWork;
-
         #region Fields
 
         private SqlUnitOfWork sqlUnitOfWork;
@@ -36,9 +38,6 @@ namespace VendingMachine.DataAccess.Repositories
             {
                 this.sqlUnitOfWork = sqlUnitOfWork;
             }
-            //vmUnitofWork = new SqlUnitofWorkBase<VendingMachineTableRecord>();
-            //locationUnitofWork = new SqlUnitofWorkBase<LocationTableRecord>();
-            //cellUnitofWork = new SqlUnitofWorkBase<CellTableRecord>();
         }
 
         #endregion Constructors
@@ -65,9 +64,17 @@ namespace VendingMachine.DataAccess.Repositories
         {
             IEnumerable<KeyValuePair<string, object>> values = DataBaseServices.GetKeyValuePairs(vmRecord);
             string tableName = DataBaseServices.GetTableName(vmRecord);
-            Query sqlInsertQ = new Query(tableName)
-                                   .AsInsert(values);
-            sqlUnitOfWork.RegisterOperation(new SqlOperation(tableName, sqlInsertQ, values, vmRecord, SqlOperationTypeEnum.Insert));
+            //Query sqlInsertQ = new Query(tableName)
+            //                       .AsInsert(values);
+            //IEnumerable<object> columnsVals = values.Select(x => x.Value);
+            //string connectionString = DataBaseServices.GetConnectionIdentifier();
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+            //{
+            //    connection.Execute(db.Compiler.Compile(sqlInsertQ).Sql, columnsVals);
+            //}
+
+            sqlUnitOfWork.RegisterOperation(new SqlOperation(tableName, values, SqlOperationTypeEnum.Insert));
         }
 
         public void AddModel(VendingMachineModel model, bool commit = false)

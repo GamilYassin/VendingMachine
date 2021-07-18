@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31512.422
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Domain", "VendingMachine.Domain\VendingMachine.Domain.csproj", "{41B8E785-5EF9-49A3-BEAD-FB971AD93039}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "VendingMachine.SqlDataBase", "VendingMachine.SqlDataBase\VendingMachine.SqlDataBase.sqlproj", "{63208176-F15C-4554-BE1B-D003D8E5DB91}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.DataAccess", "VendingMachine.DataAccess\VendingMachine.DataAccess.csproj", "{62E59D08-1EB7-452F-A8BC-3EB2498134FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.SqlKata", "VendingMachine.SqlKata\VendingMachine.SqlKata.csproj", "{B3B4C035-32B4-4723-9492-9BDF14405A91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{62E59D08-1EB7-452F-A8BC-3EB2498134FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62E59D08-1EB7-452F-A8BC-3EB2498134FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62E59D08-1EB7-452F-A8BC-3EB2498134FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B4C035-32B4-4723-9492-9BDF14405A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B4C035-32B4-4723-9492-9BDF14405A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B4C035-32B4-4723-9492-9BDF14405A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B4C035-32B4-4723-9492-9BDF14405A91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
