@@ -36,7 +36,6 @@ namespace VendingMachine.DataAccess.SQLOperations
             {
                 if (sqlOperations.Count > 0)
                 {
-                    //SqlServerCompiler compiler = new SqlServerCompiler();
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
                     {
@@ -48,15 +47,19 @@ namespace VendingMachine.DataAccess.SQLOperations
                             }
                             else if (operation.OperationType == SqlOperationTypeEnum.Update)
                             {
-                                //connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
+                                db.Query(operation.TableName)
+                                  .Where(operation.KeyColumnName, operation.KeyColumnValue)
+                                  .Update(operation.Parameters);
                             }
                             else if (operation.OperationType == SqlOperationTypeEnum.Delete)
                             {
-                                //connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
+                                db.Query(operation.TableName)
+                                  .Where(operation.KeyColumnName, operation.KeyColumnValue)
+                                  .Delete();
                             }
-                            //connection.Execute(compiler.Compile(operation.SqlQuery).Sql, operation.Param, commandType: System.Data.CommandType.Text);
                         }
                     }
+                    sqlOperations.Clear();
                 }
             }
             catch (Exception ex)
