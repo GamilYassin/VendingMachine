@@ -12,13 +12,19 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.Repositories
 {
-    public class VendingMachineRepository 
+    public class VendingMachineRepository
     {
         //private SqlUnitofWorkBase<VendingMachineTableRecord> vmUnitofWork;
         //private SqlUnitofWorkBase<LocationTableRecord> locationUnitofWork;
         //private SqlUnitofWorkBase<CellTableRecord> cellUnitofWork;
 
-        SqlUnitOfWork sqlUnitOfWork;
+        #region Fields
+
+        private SqlUnitOfWork sqlUnitOfWork;
+
+        #endregion Fields
+
+        #region Constructors
 
         public VendingMachineRepository(SqlUnitOfWork sqlUnitOfWork = null)
         {
@@ -35,12 +41,40 @@ namespace VendingMachine.DataAccess.Repositories
             //cellUnitofWork = new SqlUnitofWorkBase<CellTableRecord>();
         }
 
+        #endregion Constructors
+
+        #region Methods
+
+        private void InsertCells(IList<CellModel> cells)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void InsertLocation(LocationModel vMLocation)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void InsertVendingMachine(VendingMachineModel model)
+        {
+            VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
+            InsertVendingMachine(vmRecord);
+        }
+
+        private void InsertVendingMachine(VendingMachineTableRecord vmRecord)
+        {
+            IEnumerable<KeyValuePair<string, object>> values = DataBaseServices.GetKeyValuePairs(vmRecord);
+            string tableName = DataBaseServices.GetTableName(vmRecord);
+            Query sqlInsertQ = new Query(tableName)
+                                   .AsInsert(values);
+            sqlUnitOfWork.RegisterOperation(new SqlOperation(tableName, sqlInsertQ, values, vmRecord, SqlOperationTypeEnum.Insert));
+        }
 
         public void AddModel(VendingMachineModel model, bool commit = false)
         {
             //int affected = 0;
             //New vending machine means new location and new cells records
-            // Add vending machine 
+            // Add vending machine
             //VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
             //affected += vmUnitofWork.AddModel(vmRecord);
             //// Add location
@@ -70,31 +104,6 @@ namespace VendingMachine.DataAccess.Repositories
             {
                 Commit();
             }
-        }
-
-        private void InsertCells(IList<CellModel> cells)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void InsertLocation(LocationModel vMLocation)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void InsertVendingMachine(VendingMachineModel model)
-        {
-            VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
-            InsertVendingMachine(vmRecord);
-        }
-
-        private void InsertVendingMachine(VendingMachineTableRecord vmRecord)
-        {
-            IEnumerable<KeyValuePair<string, object>> values = DataBaseServices.GetKeyValuePairs(vmRecord);
-            string tableName = DataBaseServices.GetTableName(vmRecord);
-            Query sqlInsertQ = new Query(tableName)
-                                   .AsInsert(values);
-            sqlUnitOfWork.RegisterOperation(new SqlOperation(tableName, sqlInsertQ));
         }
 
         public void Commit()
@@ -160,5 +169,7 @@ namespace VendingMachine.DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
+
+        #endregion Methods
     }
 }

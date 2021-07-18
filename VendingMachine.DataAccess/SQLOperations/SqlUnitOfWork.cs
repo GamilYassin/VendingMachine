@@ -12,8 +12,14 @@ namespace VendingMachine.DataAccess.SQLOperations
 {
     public class SqlUnitOfWork
     {
-        private List<SqlOperation> sqlOperations;
+        #region Fields
+
         private string connectionString;
+        private List<SqlOperation> sqlOperations;
+
+        #endregion Fields
+
+        #region Constructors
 
         public SqlUnitOfWork()
         {
@@ -21,10 +27,9 @@ namespace VendingMachine.DataAccess.SQLOperations
             connectionString = DataBaseServices.GetConnectionIdentifier();
         }
 
-        public void RegisterOperation(SqlOperation operation)
-        {
-            sqlOperations.Add(operation);
-        }
+        #endregion Constructors
+
+        #region Methods
 
         public void Execute()
         {
@@ -34,24 +39,24 @@ namespace VendingMachine.DataAccess.SQLOperations
                 {
                     SqlServerCompiler compiler = new SqlServerCompiler();
                     using (SqlConnection connection = new SqlConnection(connectionString))
-                    //using (QueryFactory db = new QueryFactory(connection, compiler))
+                    using (QueryFactory db = new QueryFactory(connection, compiler))
                     {
                         foreach (SqlOperation operation in sqlOperations)
                         {
-                            //if (operation.OperationType == SqlOperationTypeEnum.Insert)
-                            //{
-                            //    //db.Query(operation.TableName)
-                            //    //  .Insert(operation.ColumnNames, operation.SqlQuery);
-                            //}
-                            //else if (operation.OperationType == SqlOperationTypeEnum.Update)
-                            //{
-                            //    connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
-                            //}
-                            //else if (operation.OperationType == SqlOperationTypeEnum.Delete)
-                            //{
-                            //    connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
-                            //}
-                            connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
+                            if (operation.OperationType == SqlOperationTypeEnum.Insert)
+                            {
+                                db.Query(operation.TableName)
+                                  .Insert(operation.ColumnNames, operation.SqlQuery);
+                            }
+                            else if (operation.OperationType == SqlOperationTypeEnum.Update)
+                            {
+                                connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
+                            }
+                            else if (operation.OperationType == SqlOperationTypeEnum.Delete)
+                            {
+                                connection.Execute(compiler.Compile(operation.SqlQuery).Sql);
+                            }
+                            //connection.Execute(compiler.Compile(operation.SqlQuery).Sql, operation.Param, commandType: System.Data.CommandType.Text);
                         }
                     }
                 }
@@ -61,5 +66,12 @@ namespace VendingMachine.DataAccess.SQLOperations
                 Log.Error(ex, "Error Executing an SQL Operation");
             }
         }
+
+        public void RegisterOperation(SqlOperation operation)
+        {
+            sqlOperations.Add(operation);
+        }
+
+        #endregion Methods
     }
 }
