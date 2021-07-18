@@ -157,7 +157,7 @@ namespace VendingMachine.Services.Utils
 
         public override string ToString()
         {
-            return Amount.ToString("N2") + $" {Currency.ToString()}";
+            return Amount.ToString("N2") + $" {Currency}";
         }
 
         public Money FromString(string moneyField)

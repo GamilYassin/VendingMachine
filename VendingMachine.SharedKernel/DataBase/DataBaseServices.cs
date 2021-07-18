@@ -22,7 +22,7 @@ namespace VendingMachine.Services.DataBase
             }
         }
 
-        public static IEnumerable<KeyValuePair<string, object>> GetKeyValuePairs<T>(T model, bool isIdIncluded = true) where T : ITable
+        public static IEnumerable<KeyValuePair<string, object>> GetKeyValuePairs<T>(T model, bool isIdIncluded = false) where T : ITable
         {
             List<KeyValuePair<string, object>> properities = new List<KeyValuePair<string, object>>();
 

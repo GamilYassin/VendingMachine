@@ -1,10 +1,9 @@
-﻿using Dapper;
-using Serilog;
-using VendingMachine.QueryBuilder;
+﻿using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using VendingMachine.DataAccess.SqlOperations;
+using VendingMachine.QueryBuilder;
 using VendingMachine.Services.DataBase;
 
 namespace VendingMachine.DataAccess.SQLOperations

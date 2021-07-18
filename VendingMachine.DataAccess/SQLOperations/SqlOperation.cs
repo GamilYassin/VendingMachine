@@ -1,9 +1,6 @@
-﻿using Dapper;
-using VendingMachine.QueryBuilder;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using VendingMachine.DataAccess.SQLOperations;
-using VendingMachine.DataAccess.Tables;
 
 namespace VendingMachine.DataAccess.SqlOperations
 {

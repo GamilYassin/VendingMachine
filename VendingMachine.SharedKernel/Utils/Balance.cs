@@ -130,7 +130,7 @@ namespace VendingMachine.Services.Utils
 
         public override string ToString()
         {
-            return $"Balance Amount: {CalculateAmount()}";
+            return CalculateAmount().ToString();
         }
 
         public Balance Add(Balance obj)
