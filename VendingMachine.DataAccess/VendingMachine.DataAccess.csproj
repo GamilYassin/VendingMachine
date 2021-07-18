@@ -90,6 +90,10 @@
       <Project>{BC66D220-9518-44F9-B608-3048B17E116E}</Project>
       <Name>VendingMachine.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VendingMachine.SqlKata\VendingMachine.SqlKata.csproj">
+      <Project>{b3b4c035-32b4-4723-9492-9bdf14405a91}</Project>
+      <Name>VendingMachine.SqlKata</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

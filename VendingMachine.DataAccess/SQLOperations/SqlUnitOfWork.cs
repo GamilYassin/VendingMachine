@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using Serilog;
-using SqlKata.Compilers;
-using SqlKata.Execution;
+using VendingMachine.QueryBuilder;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -45,9 +44,6 @@ namespace VendingMachine.DataAccess.SQLOperations
                         {
                             if (operation.OperationType == SqlOperationTypeEnum.Insert)
                             {
-                                //db.Query(operation.TableName)
-                                //  .Insert(operation.ColumnNames, operation.SqlQuery);
-
                                 db.Query(operation.TableName).Insert(operation.Parameters);
                             }
                             else if (operation.OperationType == SqlOperationTypeEnum.Update)

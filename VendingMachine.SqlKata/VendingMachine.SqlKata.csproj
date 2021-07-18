@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer, Version=2.11.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humanizer.Core.2.11.10\lib\netstandard2.0\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -93,6 +102,12 @@
     <Compile Include="Compilers\PostgresCompiler.cs" />
     <Compile Include="Compilers\SqliteCompiler.cs" />
     <Compile Include="Compilers\SqlServerCompiler.cs" />
+    <Compile Include="Execution\InsertGetId.cs" />
+    <Compile Include="Execution\PaginationIterator.cs" />
+    <Compile Include="Execution\PaginationResult.cs" />
+    <Compile Include="Execution\Query.Extensions.cs" />
+    <Compile Include="Execution\QueryFactory.cs" />
+    <Compile Include="Execution\XQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\Base.Where.cs" />
     <Compile Include="Query\BaseQuery.cs" />
@@ -115,6 +130,9 @@
     <Compile Include="Query\SqlResult.cs" />
     <Compile Include="Query\UnsafeLiteral.cs" />
     <Compile Include="Query\Variable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

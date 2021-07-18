@@ -1,6 +1,5 @@
 ﻿using Serilog;
-using SqlKata.Compilers;
-using SqlKata.Execution;
+using VendingMachine.QueryBuilder;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

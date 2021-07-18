@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using SqlKata;
+using VendingMachine.QueryBuilder;
 using System.Collections.Generic;
 using System.Linq;
 using VendingMachine.DataAccess.SQLOperations;
@@ -11,27 +11,38 @@ namespace VendingMachine.DataAccess.SqlOperations
     {
         #region Constructors
 
-        public SqlOperation(string tableName, IEnumerable<KeyValuePair<string, object>> values, SqlOperationTypeEnum type)
+        public SqlOperation(string tableName, IEnumerable<KeyValuePair<string, object>> values, SqlOperationTypeEnum type, string keyColName = null, object keyColValue = null)
         {
             OperationType = type;
             TableName = tableName;
             Parameters = values;
-            //SqlQuery = sql;
-            //Parameters = new DynamicParameters(values);
-            //Param = new DynamicParameters(vmRecord);
-            //ColumnNames = values.Select(x => x.Key).ToArray<string>();
+            if (string.IsNullOrEmpty(keyColName))
+            {
+                KeyColumnName = "Id";
+            }
+            else
+            {
+                KeyColumnName = keyColName;
+            }
+
+            if (keyColValue == null)
+            {
+                KeyColumnValue = values.Where(x => x.Key == "Id").Select(x => x.Value);
+            }
+            else
+            {
+                KeyColumnValue = keyColValue;
+            }
         }
 
         #endregion Constructors
 
         #region Properties
 
-        //public IEnumerable<string> ColumnNames { get; set; }
+        public string KeyColumnName { get; set; }
+        public object KeyColumnValue { get; set; }
         public SqlOperationTypeEnum OperationType { get; set; }
         public IEnumerable<KeyValuePair<string, object>> Parameters { get; set; }
-        //public DynamicParameters Param { get; set; }
-        //public DynamicParameters Parameters { get; set; }
-        //public Query SqlQuery { get; set; }
         public string TableName { get; set; }
 
         #endregion Properties
