@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VendingMachine.WPF.Views"
-                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -45,173 +45,175 @@
                 Grid.Row="0" 
                 Margin="5 10 5 5"
                 x:Name="btnInsertVendingMachine"
-                 Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                Click="btnInsertVendingMachine_Click">
+                Click="btnInsertVendingMachine_Click"
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
                 <materialDesign:PackIcon
-    Kind="Alarm"
-    Height="25"
-    Width="24" />
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
             </Button>
-
-            <!--<Button
-  Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-  ToolTip="MaterialDesignFloatingActionLightButton">
+            
+            <Button 
+                Grid.Column="1"
+                Grid.Row="0"
+                Margin="5 10 5 5"                 
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
                 <materialDesign:PackIcon
-    Kind="Alarm"
-    Height="{StaticResource IconSize}"
-    Width="{StaticResource IconSize}" />-->
-            
-            
-            
-            <Button 
-                Grid.Column="1"
-                Grid.Row="0" 
-                Content="Cell 2" 
-                Margin="5 10 5 5"/>
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
+            </Button>
             <Button 
                 Grid.Column="2"
-                Grid.Row="0" 
-                Content="Cell 3" 
-                Margin="5 10 5 5"/>
+                Grid.Row="0"
+                Margin="5 10 5 5"                
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                <materialDesign:PackIcon
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
+            </Button>
             <Button 
                 Grid.Column="3"
                 Grid.Row="0" 
-                Content="Cell 4" 
-                Margin="5 10 5 5"/>
+                Margin="5 10 5 5"
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                <materialDesign:PackIcon
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
+            </Button>
             <Button 
                 Grid.Column="4"
                 Grid.Row="0" 
-                Content="Cell 5" 
-                Margin="5 10 5 5"/>
-
+                Margin="5 10 5 5"
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                    <materialDesign:PackIcon
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
+            </Button>
             <Button 
                 Grid.Column="0"
                 Grid.Row="1" 
-                Content="Cell 1" 
-                Margin="5"/>
+                Margin="5"
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                <materialDesign:PackIcon
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
+            </Button>
             <Button 
                 Grid.Column="1"
-                Grid.Row="1" 
-                Content="Cell 2" 
-                Margin="5"/>
+                Grid.Row="1"
+                Style="{StaticResource VMSelectButtonStyle}"/>
             <Button 
                 Grid.Column="2"
                 Grid.Row="1" 
-                Content="Cell 3" 
-                Margin="5"/>
+                Margin="5"
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                <materialDesign:PackIcon
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
+            </Button>
             <Button 
                 Grid.Column="3"
                 Grid.Row="1" 
-                Content="Cell 4" 
-                Margin="5"/>
+                Margin="5"
+                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                <materialDesign:PackIcon
+                    Kind="Drink"
+                    Height="25"
+                    Width="24" />
+            </Button>
             <Button 
                 Grid.Column="4"
                 Grid.Row="1" 
-                Content="Cell 5" 
                 Margin="5"/>
 
             <Button 
                 Grid.Column="0"
                 Grid.Row="2" 
-                Content="Cell 1" 
                 Margin="5"/>
             <Button 
                 Grid.Column="1"
                 Grid.Row="2" 
-                Content="Cell 2" 
                 Margin="5"/>
             <Button 
                 Grid.Column="2"
                 Grid.Row="2" 
-                Content="Cell 3" 
                 Margin="5"/>
             <Button 
                 Grid.Column="3"
                 Grid.Row="2" 
-                Content="Cell 4" 
                 Margin="5"/>
             <Button 
                 Grid.Column="4"
                 Grid.Row="2" 
-                Content="Cell 5" 
                 Margin="5"/>
 
             <Button 
                 Grid.Column="0"
                 Grid.Row="3" 
-                Content="Cell 1" 
                 Margin="5"/>
             <Button 
                 Grid.Column="1"
                 Grid.Row="3" 
-                Content="Cell 2" 
                 Margin="5"/>
             <Button 
                 Grid.Column="2"
                 Grid.Row="3" 
-                Content="Cell 3" 
                 Margin="5"/>
             <Button 
                 Grid.Column="3"
                 Grid.Row="3" 
-                Content="Cell 4" 
                 Margin="5"/>
             <Button 
                 Grid.Column="4"
                 Grid.Row="3" 
-                Content="Cell 5" 
                 Margin="5"/>
 
             <Button 
                 Grid.Column="0"
                 Grid.Row="4" 
-                Content="Cell 1" 
                 Margin="5"/>
             <Button 
                 Grid.Column="1"
                 Grid.Row="4" 
-                Content="Cell 2" 
                 Margin="5"/>
             <Button 
                 Grid.Column="2"
                 Grid.Row="4" 
-                Content="Cell 3" 
                 Margin="5"/>
             <Button 
                 Grid.Column="3"
                 Grid.Row="4" 
-                Content="Cell 4" 
                 Margin="5"/>
             <Button 
                 Grid.Column="4"
                 Grid.Row="4" 
-                Content="Cell 5" 
                 Margin="5"/>
 
             <Button 
                 Grid.Column="0"
                 Grid.Row="5" 
-                Content="Cell 1" 
                 Margin="5"/>
             <Button 
                 Grid.Column="1"
                 Grid.Row="5" 
-                Content="Cell 2" 
                 Margin="5"/>
             <Button 
                 Grid.Column="2"
                 Grid.Row="5" 
-                Content="Cell 3" 
                 Margin="5"/>
             <Button 
                 Grid.Column="3"
                 Grid.Row="5" 
-                Content="Cell 4" 
                 Margin="5"/>
             <Button 
                 Grid.Column="4"
                 Grid.Row="5" 
-                Content="Cell 5" 
                 Margin="5"/>
 
             <StackPanel 
