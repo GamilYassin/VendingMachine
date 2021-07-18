@@ -1,32 +1,38 @@
 ﻿using System;
-using VendingMachine.Domain.Exceptions;
 using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.Models
 {
-    public class CartItem
+    public class CartItemModel: IEntity
     {
         public int Qty { get; set; }
         public SellItemModel SellItem { get; set; }
+        public int Id { get; set; }
+        public int SessionId { get; set; }
 
-        public CartItem()
+        public CartItemModel() : this(0, null)
         {
         }
 
-        public CartItem(int qty, SellItemModel sellItem)
+        public CartItemModel(int qty, SellItemModel sellItem)
         {
             Qty = qty;
-            SellItem = sellItem;
+            if (sellItem == null)
+            {
+                SellItem = new SellItemModel();
+            }
+            else
+            {
+                SellItem = sellItem;
+            }
         }
-
-
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(obj, null))
                 throw new NullReferenceException("CartItem can not be null");
 
-            CartItem otherItem = (CartItem)obj;
+            CartItemModel otherItem = (CartItemModel)obj;
 
             if (Qty != otherItem.Qty)
                 return false;

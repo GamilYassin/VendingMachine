@@ -1,6 +1,6 @@
 ﻿namespace VendingMachine.Services.Interfaces
 {
-    public interface IModelMapper<TDomain, TTable>
+    public interface IModelMapper<TDomain, TTable> where TDomain : IEntity where TTable : ITable
     {
         #region Methods
 

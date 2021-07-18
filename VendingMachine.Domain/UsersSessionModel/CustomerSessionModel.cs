@@ -10,7 +10,8 @@ namespace VendingMachine.Domain.Models
     {
         public Balance CustomerBalance { get; set; }
         public CustomerSessionStatusEnum Status { get; set; }
-        public List<CartItem> CartItems { get; }
+        public List<CartItemModel> CartItems { get; }
+        public int VendingMachineId { get; set; }
 
         public CustomerSessionModel() : this(Balance.Empty)
         {
@@ -19,7 +20,7 @@ namespace VendingMachine.Domain.Models
 
         public CustomerSessionModel(Balance custBalance, CustomerSessionStatusEnum custStatus)
         {
-            CartItems = new List<CartItem>();
+            CartItems = new List<CartItemModel>();
             Status = custStatus;
         }
 

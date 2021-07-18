@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.Tables
 {
-   public class CustomerSessionTableRecord
+    public class CustomerSessionTableRecord : ITable
     {
         public int Id { get; set; }
         public int VendingMachineId { get; set; }
-        public int BalanceId { get; set; }
+        public string BalanceText { get; set; }
         public string Status { get; set; }
     }
 }

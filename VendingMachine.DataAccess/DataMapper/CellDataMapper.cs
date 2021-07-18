@@ -8,16 +8,25 @@ namespace VendingMachine.DataAccess.DataMapper
     {
         public CellTableRecord MapFromDomain(CellModel domainModel)
         {
-            return new CellTableRecord();
-            //{ 
-            //VendingMachineId = domainModel.,
-            //CellId = domainModel.
-            //};
+            return new CellTableRecord()
+            {
+                VendingMachineId = domainModel.VendingMachineId,
+                CellId = domainModel.CellId,
+                ItemId = domainModel.SellItem.Id,
+                ItemQty = domainModel.SellItemQty,
+            };
+
         }
 
         public void MapFromTable(ref CellModel domainModel, CellTableRecord databaseModel)
         {
-            throw new System.NotImplementedException();
+            if (domainModel == null)
+            {
+                domainModel = new CellModel();
+            }
+            domainModel.VendingMachineId = databaseModel.VendingMachineId;
+            domainModel.CellId = databaseModel.CellId;
+            domainModel.SellItem.Id = databaseModel.ItemId;
         }
     }
 }

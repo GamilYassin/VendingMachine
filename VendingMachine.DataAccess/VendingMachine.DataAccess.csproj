@@ -62,10 +62,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMapper\CartItemDataMapper.cs" />
     <Compile Include="DataMapper\CellDataMapper.cs" />
     <Compile Include="DataManager\DataManagerBase.cs" />
     <Compile Include="DataManager\SqlDataManager.cs" />
+    <Compile Include="DataMapper\CustomerSessionDataMapper.cs" />
     <Compile Include="DataMapper\LocationMapper.cs" />
+    <Compile Include="DataMapper\SellItemDataMapper.cs" />
+    <Compile Include="DataMapper\UserDataMapper.cs" />
     <Compile Include="DataMapper\VendingMachineMapper.cs" />
     <Compile Include="Repositories\VendingMachineRepository.cs" />
     <Compile Include="Tables\CarItemTableRecord.cs" />

@@ -8,6 +8,11 @@ namespace VendingMachine.Domain.Models
         public string UserPassword { get; set; }
         public UserPrivilegeEnum Privilege { get; set; }
 
+        public UserModel()
+        {
+            Privilege = UserPrivilegeEnum.Maintenance;
+        }
+
         public override string ToString()
         {
             return UserName;

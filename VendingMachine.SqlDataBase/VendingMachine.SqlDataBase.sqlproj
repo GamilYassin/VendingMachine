@@ -67,4 +67,7 @@
     <Build Include="Tables\CustomerSessionTable.sql" />
     <Build Include="Tables\CartItemTable.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="VendingMachine.SqlDataBase.refactorlog" />
+  </ItemGroup>
 </Project>

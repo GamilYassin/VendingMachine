@@ -19,6 +19,16 @@ namespace VendingMachine.Domain.Models
         public IList<CellModel> Cells { get; set; }
         public VendingMachineStateEnum State { get; set; }
 
+        public VendingMachineModel()
+        {
+            VMLocation = new LocationModel();
+            VMMaintenanceSchedule = new MaintenanceSchedule();
+            GrandBalanceAmount = Money.Empty;
+            InsideBalance = Balance.Empty;
+            Cells= new List<CellModel>();
+            State = VendingMachineStateEnum.Starting;
+        }
+
         public override string ToString()
         {
             return $"{Manufacturer}, {Model}, {VMLocation}";

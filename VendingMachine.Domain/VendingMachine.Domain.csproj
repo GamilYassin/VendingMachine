@@ -58,7 +58,7 @@
     <Compile Include="UsersSessionModel\UserPrivilege.cs" />
     <Compile Include="VendingMachineModel\VendingMachineStateEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersSessionModel\CartItem.cs" />
+    <Compile Include="UsersSessionModel\CartItemModel.cs" />
     <Compile Include="UsersSessionModel\CustomerSessionModel.cs" />
     <Compile Include="VendingMachineModel\LocationModel.cs" />
     <Compile Include="VendingMachineModel\MaintenanceSchedule.cs" />

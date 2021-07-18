@@ -21,12 +21,16 @@ namespace VendingMachine.DataAccess.DataMapper
                 LastMaintDate = domainModel.VMMaintenanceSchedule.LastMaintDate.Value,
                 GrandBalance = domainModel.GrandBalanceAmount.ToString(),
                 State = domainModel.State.DisplayName,
-                
+                BalanceText = domainModel.InsideBalance.Encode(),
             };
         }
 
         public void MapFromTable(ref VendingMachineModel domainModel, VendingMachineTableRecord databaseModel)
         {
+            if (domainModel == null)
+            {
+                domainModel = new VendingMachineModel();
+            }
             domainModel.Id = databaseModel.Id;
             domainModel.Model = databaseModel.Model;
             domainModel.Manufacturer = databaseModel.Manufacturer;
@@ -34,6 +38,7 @@ namespace VendingMachine.DataAccess.DataMapper
             domainModel.VMMaintenanceSchedule = new MaintenanceSchedule(databaseModel.Frequency, new Date(databaseModel.StartDate));
             domainModel.GrandBalanceAmount = Money.MoneyFactory(databaseModel.GrandBalance);
             domainModel.State = Enumeration.FromDisplayName<VendingMachineStateEnum>(databaseModel.State);
+            domainModel.InsideBalance = Balance.Empty.Decode(databaseModel.BalanceText);
         }
     }
 }

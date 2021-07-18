@@ -13,9 +13,9 @@ namespace VendingMachine.DataAccess.Tables
         public string GrandBalance { get; set; }
         public DateTime StartDate { get; set; }
         public string State { get; set; }
-        public int BalanceId { get; set; }
+        public string BalanceText { get; set; }
 
-        public VendingMachineTableRecord(int id, string model, string manufacturer, int freq, DateTime lastMaint, string grandBalance, DateTime start, string state, int balanceId)
+        public VendingMachineTableRecord(int id, string model, string manufacturer, int freq, DateTime lastMaint, string grandBalance, DateTime start, string state, string balanceText)
         {
             Id = id;
             Model = model;
@@ -25,10 +25,10 @@ namespace VendingMachine.DataAccess.Tables
             GrandBalance = grandBalance;
             StartDate = start;
             State = state;
-            BalanceId = balanceId;
+            BalanceText = balanceText;
         }
 
-        public VendingMachineTableRecord() : this(0, string.Empty, string.Empty, 0, DateTime.Today, string.Empty, DateTime.Today,  string.Empty,0)
+        public VendingMachineTableRecord() : this(0, string.Empty, string.Empty, 0, DateTime.Today, string.Empty, DateTime.Today,  string.Empty,string.Empty)
         {
 
         }
