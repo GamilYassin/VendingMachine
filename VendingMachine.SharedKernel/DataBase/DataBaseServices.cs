@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Reflection;
 using VendingMachine.Services.Interfaces;
 
@@ -6,9 +8,18 @@ namespace VendingMachine.Services.DataBase
 {
     public static class DataBaseServices
     {
+        #region Methods
+
         public static string GetConnectionIdentifier()
         {
-            return string.Empty;
+            try
+            {
+                return ConfigurationManager.ConnectionStrings["SqlDefault"].ConnectionString;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static IEnumerable<KeyValuePair<string, object>> GetKeyValuePairs<T>(T model, bool isIdIncluded = false) where T : ITable
@@ -41,5 +52,6 @@ namespace VendingMachine.Services.DataBase
             return name.Substring(0, name.Length - 5);
         }
 
+        #endregion Methods
     }
 }
