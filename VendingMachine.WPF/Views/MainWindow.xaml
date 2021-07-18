@@ -4,6 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VendingMachine.WPF.Views"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Vending Machine Id ### - Mode ####" 
         Height="600" Width="800"
@@ -37,10 +43,26 @@
             <Button 
                 Grid.Column="0"
                 Grid.Row="0" 
-                Content="Insert VM" 
                 Margin="5 10 5 5"
                 x:Name="btnInsertVendingMachine"
-                Click="btnInsertVendingMachine_Click"/>
+                 Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                Click="btnInsertVendingMachine_Click">
+                <materialDesign:PackIcon
+    Kind="Alarm"
+    Height="25"
+    Width="24" />
+            </Button>
+
+            <!--<Button
+  Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+  ToolTip="MaterialDesignFloatingActionLightButton">
+                <materialDesign:PackIcon
+    Kind="Alarm"
+    Height="{StaticResource IconSize}"
+    Width="{StaticResource IconSize}" />-->
+            
+            
+            
             <Button 
                 Grid.Column="1"
                 Grid.Row="0" 

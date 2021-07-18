@@ -88,10 +88,10 @@ namespace VendingMachine.WPF.Views
             };
 
             VendingMachineRepository vmRepo = new VendingMachineRepository();
-            vmRepo.AddModel(vmRecord1);
-            vmRepo.AddModel(vmRecord2);
-            vmRepo.AddModel(vmRecord3);
-            vmRepo.AddModel(vmRecord4, true);
+            //vmRepo.AddModel(vmRecord1);
+            //vmRepo.AddModel(vmRecord2);
+            //vmRepo.AddModel(vmRecord3);
+            //vmRepo.AddModel(vmRecord4, true);
         }
     }
 }
