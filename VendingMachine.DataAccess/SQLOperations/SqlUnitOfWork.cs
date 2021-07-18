@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using VendingMachine.DataAccess.SqlOperations;
 using VendingMachine.QueryBuilder;
 using VendingMachine.Services.DataBase;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.SQLOperations
 {
@@ -72,6 +73,12 @@ namespace VendingMachine.DataAccess.SQLOperations
             sqlOperations.Add(operation);
         }
 
+        public void InsertRecord(ITable vmRecord)
+        {
+            IEnumerable<KeyValuePair<string, object>> values = DataBaseServices.GetKeyValuePairs(vmRecord);
+            string tableName = DataBaseServices.GetTableName(vmRecord);
+            RegisterOperation(new SqlOperation(tableName, values, SqlOperationTypeEnum.Insert));
+        }
         #endregion Methods
     }
 }
