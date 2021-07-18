@@ -8,6 +8,7 @@ namespace VendingMachine.DataAccess.Tables
         public string Street { get; set; }
         public string City { get; set; }
         public string Landmark { get; set; }
+        public int Id { get; set; }
 
         public LocationTableRecord(int vmId, string street, string city, string landmark)
         {

@@ -12,5 +12,6 @@ namespace VendingMachine.DataAccess.Tables
         public int SessionId { get; set; }
         public int SellItemId { get; set; }
         public int SellItemQty { get; set; }
+        public int Id { get; set; }
     }
 }

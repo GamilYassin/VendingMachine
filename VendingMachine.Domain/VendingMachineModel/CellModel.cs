@@ -1,13 +1,15 @@
 ﻿using System;
+using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.Domain.Models
 {
-    public class CellModel
+    public class CellModel: IEntity
     {
         public string CellId { get; set; }
         public SellItemModel SellItem { get; set; }
         public int SellItemQty { get; set; }
         public int VendingMachineId { get; set; }
+        public int Id { get; set; }
 
         public CellModel(int vmId, string cellId, SellItemModel sellItem, int itemQty)
         {

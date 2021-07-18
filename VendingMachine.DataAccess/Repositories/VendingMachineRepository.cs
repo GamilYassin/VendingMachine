@@ -11,14 +11,12 @@ namespace VendingMachine.DataAccess.Repositories
     {
         private SqlUnitofWorkBase<VendingMachineTableRecord> vmUnitofWork;
         private SqlUnitofWorkBase<LocationTableRecord> locationUnitofWork;
-        private SqlUnitofWorkBase<InsideBalanceTableRecord> balanceUnitofWork;
         private SqlUnitofWorkBase<CellTableRecord> cellUnitofWork;
 
         public VendingMachineRepository()
         {
             vmUnitofWork = new SqlUnitofWorkBase<VendingMachineTableRecord>();
             locationUnitofWork = new SqlUnitofWorkBase<LocationTableRecord>();
-            balanceUnitofWork = new SqlUnitofWorkBase<InsideBalanceTableRecord>();
             cellUnitofWork = new SqlUnitofWorkBase<CellTableRecord>();
         }
 
