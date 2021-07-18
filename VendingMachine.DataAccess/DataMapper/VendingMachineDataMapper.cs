@@ -6,7 +6,7 @@ using VendingMachine.Services.Utils;
 
 namespace VendingMachine.DataAccess.DataMapper
 {
-    public class VendingMachineMapper : IModelMapper<VendingMachineModel, VendingMachineTableRecord>
+    public class VendingMachineDataMapper : IModelMapper<VendingMachineModel, VendingMachineTableRecord>
     {
 
         public VendingMachineTableRecord MapFromDomain(VendingMachineModel domainModel)

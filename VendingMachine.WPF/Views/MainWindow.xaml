@@ -37,8 +37,10 @@
             <Button 
                 Grid.Column="0"
                 Grid.Row="0" 
-                Content="Cell 1" 
-                Margin="5 10 5 5"/>
+                Content="Insert VM" 
+                Margin="5 10 5 5"
+                x:Name="btnInsertVendingMachine"
+                Click="btnInsertVendingMachine_Click"/>
             <Button 
                 Grid.Column="1"
                 Grid.Row="0" 

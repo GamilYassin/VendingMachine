@@ -101,5 +101,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.DataAccess\VendingMachine.DataAccess.csproj">
+      <Project>{62e59d08-1eb7-452f-a8bc-3eb2498134fe}</Project>
+      <Name>VendingMachine.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendingMachine.Domain\VendingMachine.Domain.csproj">
+      <Project>{41b8e785-5ef9-49a3-bead-fb971ad93039}</Project>
+      <Name>VendingMachine.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendingMachine.SharedKernel\VendingMachine.Services.csproj">
+      <Project>{bc66d220-9518-44f9-b608-3048b17e116e}</Project>
+      <Name>VendingMachine.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

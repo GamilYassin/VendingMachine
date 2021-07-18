@@ -4,7 +4,7 @@ using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.DataMapper
 {
-    public class LocationMapper : IModelMapper<VendingMachineModel, LocationTableRecord>
+    public class LocationDataMapper : IModelMapper<VendingMachineModel, LocationTableRecord>
     {
         public LocationTableRecord MapFromDomain(VendingMachineModel domainModel)
         {

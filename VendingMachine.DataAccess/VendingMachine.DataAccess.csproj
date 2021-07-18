@@ -67,11 +67,14 @@
     <Compile Include="DataManager\DataManagerBase.cs" />
     <Compile Include="DataManager\SqlDataManager.cs" />
     <Compile Include="DataMapper\CustomerSessionDataMapper.cs" />
-    <Compile Include="DataMapper\LocationMapper.cs" />
+    <Compile Include="DataMapper\LocationDataMapper.cs" />
     <Compile Include="DataMapper\SellItemDataMapper.cs" />
     <Compile Include="DataMapper\UserDataMapper.cs" />
-    <Compile Include="DataMapper\VendingMachineMapper.cs" />
+    <Compile Include="DataMapper\VendingMachineDataMapper.cs" />
     <Compile Include="Repositories\VendingMachineRepository.cs" />
+    <Compile Include="SQLOperations\SqlOperation.cs" />
+    <Compile Include="SQLOperations\SqlOperationTypeEnum.cs" />
+    <Compile Include="SQLOperations\SqlUnitOfWork.cs" />
     <Compile Include="Tables\CarItemTableRecord.cs" />
     <Compile Include="Tables\CellTableRecord.cs" />
     <Compile Include="Tables\CustomerSessionTableRecord.cs" />

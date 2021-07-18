@@ -1,45 +1,139 @@
-﻿using System;
+﻿using SqlKata;
+using System;
 using System.Collections.Generic;
+using VendingMachine.DataAccess.DataMapper;
+using VendingMachine.DataAccess.SqlOperations;
+using VendingMachine.DataAccess.SQLOperations;
 using VendingMachine.DataAccess.Tables;
 using VendingMachine.DataAccess.UnitOfWork;
 using VendingMachine.Domain.Models;
+using VendingMachine.Services.DataBase;
 using VendingMachine.Services.Interfaces;
 
 namespace VendingMachine.DataAccess.Repositories
 {
-    public class VendingMachineRepository : IRepository<VendingMachineModel>
+    public class VendingMachineRepository 
     {
-        private SqlUnitofWorkBase<VendingMachineTableRecord> vmUnitofWork;
-        private SqlUnitofWorkBase<LocationTableRecord> locationUnitofWork;
-        private SqlUnitofWorkBase<CellTableRecord> cellUnitofWork;
+        //private SqlUnitofWorkBase<VendingMachineTableRecord> vmUnitofWork;
+        //private SqlUnitofWorkBase<LocationTableRecord> locationUnitofWork;
+        //private SqlUnitofWorkBase<CellTableRecord> cellUnitofWork;
 
-        public VendingMachineRepository()
+        SqlUnitOfWork sqlUnitOfWork;
+
+        public VendingMachineRepository(SqlUnitOfWork sqlUnitOfWork = null)
         {
-            vmUnitofWork = new SqlUnitofWorkBase<VendingMachineTableRecord>();
-            locationUnitofWork = new SqlUnitofWorkBase<LocationTableRecord>();
-            cellUnitofWork = new SqlUnitofWorkBase<CellTableRecord>();
+            if (sqlUnitOfWork == null)
+            {
+                this.sqlUnitOfWork = new SqlUnitOfWork();
+            }
+            else
+            {
+                this.sqlUnitOfWork = sqlUnitOfWork;
+            }
+            //vmUnitofWork = new SqlUnitofWorkBase<VendingMachineTableRecord>();
+            //locationUnitofWork = new SqlUnitofWorkBase<LocationTableRecord>();
+            //cellUnitofWork = new SqlUnitofWorkBase<CellTableRecord>();
         }
 
 
-        public int AddModel(VendingMachineModel model, bool commit = false)
+        public void AddModel(VendingMachineModel model, bool commit = false)
         {
-            //vmUnitofWork.AddModel(model, commit);
+            //int affected = 0;
+            //New vending machine means new location and new cells records
+            // Add vending machine 
+            //VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
+            //affected += vmUnitofWork.AddModel(vmRecord);
+            //// Add location
+            //LocationTableRecord locationRecord = new LocationDataMapper().MapFromDomain(model);
+            //affected += locationUnitofWork.AddModel(locationRecord);
+            //// Add cells collection
+            //foreach (CellModel cell in model.Cells)
+            //{
+            //    CellTableRecord cellRecord = new CellDataMapper().MapFromDomain(cell);
+            //    affected += cellUnitofWork.AddModel(cellRecord);
+            //}
+
+            InsertVendingMachine(model);
+            //InsertLocation(model.VMLocation);
+            //InsertCells(model.Cells);
+
+            if (commit)
+            {
+                Commit();
+            }
+        }
+
+        public void AddModel(VendingMachineTableRecord model, bool commit = false)
+        {
+            InsertVendingMachine(model);
+            if (commit)
+            {
+                Commit();
+            }
+        }
+
+        private void InsertCells(IList<CellModel> cells)
+        {
             throw new NotImplementedException();
+        }
+
+        private void InsertLocation(LocationModel vMLocation)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void InsertVendingMachine(VendingMachineModel model)
+        {
+            VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
+            InsertVendingMachine(vmRecord);
+        }
+
+        private void InsertVendingMachine(VendingMachineTableRecord vmRecord)
+        {
+            IEnumerable<KeyValuePair<string, object>> values = DataBaseServices.GetKeyValuePairs(vmRecord);
+            string tableName = DataBaseServices.GetTableName(vmRecord);
+            Query sqlInsertQ = new Query(tableName)
+                                   .AsInsert(values);
+            sqlUnitOfWork.RegisterOperation(new SqlOperation(tableName, sqlInsertQ));
         }
 
         public void Commit()
         {
-            throw new NotImplementedException();
+            //vmUnitofWork.Commit();
+            //locationUnitofWork.Commit();
+            //cellUnitofWork.Commit();
+            sqlUnitOfWork.Execute();
         }
 
         public bool Contains(VendingMachineModel model)
         {
+            //VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
+            //return vmUnitofWork.Contains(vmRecord);
+
             throw new NotImplementedException();
         }
 
         public int DeleteModel(VendingMachineModel model, bool commit = false)
         {
-            throw new NotImplementedException();
+            //int affected = 0;
+            //foreach (CellModel cell in model.Cells)
+            //{
+            //    CellTableRecord cellRecord = new CellDataMapper().MapFromDomain(cell);
+            //    affected += cellUnitofWork.DeleteModel(cellRecord);
+            //}
+
+            //VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
+            //affected += vmUnitofWork.AddModel(vmRecord);
+            //// Add location
+            //LocationTableRecord locationRecord = new LocationDataMapper().MapFromDomain(model);
+            //affected += locationUnitofWork.AddModel(locationRecord);
+            //// Add cells collection
+
+            if (commit)
+            {
+                Commit();
+            }
+            return 0;
         }
 
         public int DeleteModelById(int id, bool commit = false)
