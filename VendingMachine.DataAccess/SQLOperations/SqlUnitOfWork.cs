@@ -92,6 +92,48 @@ namespace VendingMachine.DataAccess.SQLOperations
             RegisterOperation(new SqlOperation(tableName, values, SqlOperationTypeEnum.Update, keyColumnName, keyColValue));
         }
 
+        public int RecordsCount(string tableName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+            {
+                return db.Query(tableName)
+                         .Count<int>();
+            }
+        }
+
+        public T FindById<T>(string tableName, string keyColName, object keyColValue) where T : ITable
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+            {
+                return db.Query(tableName)
+                         .Where(keyColName, keyColValue)
+                         .FirstOrDefault<T>();
+            }
+        }
+
+        public IEnumerable<T> FindAll<T>(string tableName, string keyColName, object keyColValue) where T: ITable
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+            {
+                return db.Query(tableName)
+                         .Where(keyColName, keyColValue)
+                         .Get<T>();
+            }
+        }
+
+        public IEnumerable<T> FindAll<T>(string tableName) where T : ITable
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (QueryFactory db = new QueryFactory(connection, new SqlServerCompiler()))
+            {
+                return db.Query(tableName)
+                         .Get<T>();
+            }
+        }
+
         #endregion Methods
     }
 }
