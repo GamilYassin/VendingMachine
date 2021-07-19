@@ -79,6 +79,19 @@ namespace VendingMachine.DataAccess.SQLOperations
             string tableName = DataBaseServices.GetTableName(vmRecord);
             RegisterOperation(new SqlOperation(tableName, values, SqlOperationTypeEnum.Insert));
         }
+
+        public void DeleteRecord(string tableName, string keyColumnName, object keyColValue)
+        {
+            RegisterOperation(new SqlOperation(tableName, null, SqlOperationTypeEnum.Delete, keyColumnName, keyColValue));
+        }
+
+        public void UpdateRecord(ITable vmRecord, string keyColumnName, object keyColValue)
+        {
+            IEnumerable<KeyValuePair<string, object>> values = DataBaseServices.GetKeyValuePairs(vmRecord);
+            string tableName = DataBaseServices.GetTableName(vmRecord);
+            RegisterOperation(new SqlOperation(tableName, values, SqlOperationTypeEnum.Update, keyColumnName, keyColValue));
+        }
+
         #endregion Methods
     }
 }

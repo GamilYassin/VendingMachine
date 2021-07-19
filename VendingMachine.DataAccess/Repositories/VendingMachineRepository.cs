@@ -48,27 +48,19 @@ namespace VendingMachine.DataAccess.Repositories
 
         public bool Contains(VendingMachineModel model)
         {
-            //VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
-            //return vmUnitofWork.Contains(vmRecord);
+            sqlUnitOfWork.InsertRecord(new VendingMachineDataMapper().MapFromDomain(model));
+            sqlUnitOfWork.InsertRecord(new LocationDataMapper().MapFromDomain(model));
+            foreach (CellModel cell in model.Cells)
+            {
+                sqlUnitOfWork.InsertRecord(new CellDataMapper().MapFromDomain(cell));
+            }
 
             throw new NotImplementedException();
         }
 
         public int DeleteModel(VendingMachineModel model, bool commit = false)
         {
-            //int affected = 0;
-            //foreach (CellModel cell in model.Cells)
-            //{
-            //    CellTableRecord cellRecord = new CellDataMapper().MapFromDomain(cell);
-            //    affected += cellUnitofWork.DeleteModel(cellRecord);
-            //}
-
-            //VendingMachineTableRecord vmRecord = new VendingMachineDataMapper().MapFromDomain(model);
-            //affected += vmUnitofWork.AddModel(vmRecord);
-            //// Add location
-            //LocationTableRecord locationRecord = new LocationDataMapper().MapFromDomain(model);
-            //affected += locationUnitofWork.AddModel(locationRecord);
-            //// Add cells collection
+            sqlUnitOfWork.DeleteRecord();
 
             if (commit)
             {

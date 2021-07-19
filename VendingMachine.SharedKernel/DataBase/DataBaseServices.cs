@@ -8,6 +8,14 @@ namespace VendingMachine.Services.DataBase
 {
     public static class DataBaseServices
     {
+        public static readonly string VendingMachineTableName = "VendingMachineTable";
+        public static readonly string CartItemTableName = "CartItemTable";
+        public static readonly string CustomerSessionTableName = "CustomerSessionTable";
+        public static readonly string LocationTableName = "LocationTable";
+        public static readonly string SellItemTableName = "SellItemTable";
+        public static readonly string UserTableName = "UserTable";
+        public static readonly string CellTableName = "CellTable";
+
         #region Methods
 
         public static string GetConnectionIdentifier()

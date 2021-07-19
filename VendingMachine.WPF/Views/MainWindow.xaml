@@ -43,90 +43,40 @@
             <Button 
                 Grid.Column="0"
                 Grid.Row="0" 
-                Margin="5 10 5 5"
-                x:Name="btnInsertVendingMachine"
-                Click="btnInsertVendingMachine_Click"
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
-            
+                Margin="5"/>
+
             <Button 
                 Grid.Column="1"
-                Grid.Row="0"
-                Margin="5 10 5 5"                 
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
+                Grid.Row="0" 
+                Margin="5"/>
             <Button 
                 Grid.Column="2"
-                Grid.Row="0"
-                Margin="5 10 5 5"                
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
+                Grid.Row="0" 
+                Margin="5"/>
             <Button 
                 Grid.Column="3"
                 Grid.Row="0" 
-                Margin="5 10 5 5"
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
+                Margin="5"/>
             <Button 
                 Grid.Column="4"
                 Grid.Row="0" 
-                Margin="5 10 5 5"
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                    <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
+                Margin="5"/>
             <Button 
                 Grid.Column="0"
                 Grid.Row="1" 
-                Margin="5"
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
+                Margin="5"/>
             <Button 
                 Grid.Column="1"
-                Grid.Row="1"
-                Style="{StaticResource VMSelectButtonStyle}"/>
+                Grid.Row="1" 
+                Margin="5"/>
             <Button 
                 Grid.Column="2"
                 Grid.Row="1" 
-                Margin="5"
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
+                Margin="5"/>
             <Button 
                 Grid.Column="3"
                 Grid.Row="1" 
-                Margin="5"
-                Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                <materialDesign:PackIcon
-                    Kind="Drink"
-                    Height="25"
-                    Width="24" />
-            </Button>
+                Margin="5"/>
             <Button 
                 Grid.Column="4"
                 Grid.Row="1" 
